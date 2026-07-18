@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#C9D9A4">
-  <meta name="description" content="Touri — Audio tours GPS que se activan solos mientras caminas. Descubre ciudades con guías de audio automáticas.">
+  <meta name="description" content="Touri — Audioguía GPS de Vitoria-Gasteiz. 17 paradas, 2 horas a pie. Se activa sola al llegar a cada punto. Gratis.">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Touri — Audio Tour</title>
@@ -43,33 +43,43 @@
           <div class="s1-mountain-snow-1"></div>
           <div class="s1-shadow"></div>
           
-          <!-- Walking character -->
-          <div class="s1-walker">
-            <span class="s1-person-emoji">🧑‍🦱</span>
-            <span class="s1-bag">🎒</span>
-            <div class="s1-boots">
-              <span class="s1-boot s1-boot-l">🥾</span>
-              <span class="s1-boot s1-boot-r">🥾</span>
+          <!-- CSS animated boots instead of emojis -->
+          <div class="boots-wrap">
+            <div class="boot boot-l">
+              <div class="boot-shaft"></div>
+              <div class="boot-toe"></div>
+              <div class="boot-sole"></div>
+              <div class="boot-lace boot-lace-1"></div>
+              <div class="boot-lace boot-lace-2"></div>
+            </div>
+            <div class="boot boot-r">
+              <div class="boot-shaft"></div>
+              <div class="boot-toe"></div>
+              <div class="boot-sole"></div>
+              <div class="boot-lace boot-lace-1"></div>
+              <div class="boot-lace boot-lace-2"></div>
             </div>
           </div>
-          
-          <!-- Flashing stars and map pins -->
-          <div class="s1-sparkle s1-sparkle-1">✨</div>
-          <div class="s1-sparkle s1-sparkle-2">⭐</div>
-          <div class="s1-sparkle s1-sparkle-3">✨</div>
-          <div class="s1-pin s1-pin-1">📍</div>
-          <div class="s1-pin s1-pin-2">📍</div>
+
+          <!-- City pills CSS (replacing the 📍 pins) -->
+          <div class="city-pill pill-vitoria">
+            <div class="city-thumb">
+              <img src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?w=80&q=80" alt="">
+            </div>
+            <span class="city-name" data-i18n="city_vitoria">Vitoria</span>
+          </div>
+          <div class="city-pill pill-paris">
+            <div class="city-thumb">
+              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=80&q=80" alt="">
+            </div>
+            <span class="city-name" data-i18n="city_paris">Paris</span>
+          </div>
         </div>
 
         <!-- Logo & Header -->
-        <div class="s1-logo-wrap">
-          <!-- Premium SVG Map/Sun Logo -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:20px;height:20px;color:#3D5A1A;">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
-          </svg>
-          <span style="font-weight: 900; color:#3D5A1A; font-size:16px; letter-spacing:-0.5px;">Touri</span>
-          <div class="s1-logo-pill">V1.2</div>
+        <div class="s1-logo-wrap" style="display: flex; align-items: center; gap: 8px;">
+          <img src="MANUAL TOURI-02.png" alt="Touri Logo" style="height: 28px; filter: brightness(0) invert(1); opacity: .9;">
+          <div class="s1-logo-pill" style="background: var(--blue); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px;">Tu guía local</div>
         </div>
 
         <div class="s1-explore" data-i18n="explore.greeting">Explora la ciudad</div>

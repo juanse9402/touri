@@ -57,17 +57,23 @@ const GPS = (() => {
     _onEnterStop = onEnterStop;
     _isTracking = true;
 
-    _watchId = navigator.geolocation.watchPosition(
-      handlePosition,
-      handleError,
-      {
-        enableHighAccuracy: true,
-        maximumAge: 3000,
-        timeout: 15000,
-      }
-    );
+    const pollGPS = () => {
+      if (!_isTracking) return;
+      navigator.geolocation.getCurrentPosition(
+        handlePosition,
+        handleError,
+        {
+          enableHighAccuracy: true,
+          maximumAge: 3000,
+          timeout: 4500,
+        }
+      );
+    };
 
-    console.log('[GPS] Tracking started, watchId:', _watchId);
+    pollGPS();
+    _watchId = setInterval(pollGPS, 5000);
+
+    console.log('[GPS] Tracking started (polling every 5s), intervalId:', _watchId);
     return true;
   }
 
@@ -76,7 +82,7 @@ const GPS = (() => {
    */
   function stopTracking() {
     if (_watchId !== null) {
-      navigator.geolocation.clearWatch(_watchId);
+      clearInterval(_watchId);
       _watchId = null;
     }
     _isTracking = false;

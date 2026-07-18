@@ -6,21 +6,29 @@
 ═══════════════════════════════════ */
 
 :root {
-  --ink:       #0F0E0B;
+  --green:     #94A35D;  /* verde principal */
+  --green-d:   #6B7A42;  /* verde oscuro — botones CTA */
+  --green-l:   #B8CC7A;  /* verde claro — splash background */
+  --cream:     #EFE1CD;  /* crema — fondos cálidos */
+  --blue:      #5398D2;  /* azul — pill "Tu guía local." */
+  --yellow:    #F4EF9F;  /* amarillo — acentos especiales */
+  --black:     #232321;  /* negro Touri */
+  --r:         16px;
+  
+  /* Fallback aliases to keep existing styles working */
+  --ink:       #232321;
   --ink-2:     #1C1B17;
   --ink-3:     #2A2923;
   --ink-4:     #3D3B33;
   --stone:     #7A786E;
-  --cream:     #F0EDE4;
   --cream-2:   #DDD9CE;
   --cream-3:   #B8B3A6;
-  --moss:      #4A7C59;
-  --moss-light:#6BA87A;
-  --moss-bg:   rgba(74,124,89,.12);
-  --gold:      #C9933A;
-  --gold-bg:   rgba(201,147,58,.1);
+  --moss:      #6B7A42;
+  --moss-light:#94A35D;
+  --moss-bg:   rgba(148,163,93,.12);
+  --gold:      #F4EF9F;
+  --gold-bg:   rgba(244,239,159,.1);
   --white:     #FAFAF7;
-  --r:         16px;
 }
 
 /* ── RESET ── */
@@ -990,12 +998,112 @@ body {
    PANTALLA 1 — SPLASH
 ═══════════════════════════════════ */
 .s1 {
-  background:#C9D9A4;
-  width:100%;
+  background: var(--cream);
+  width: 100%;
 }
-.s1 .notch-bar { background:#B8CA90; }
-.s1 .notch-pill { background:#A8BB80; }
-.s1 .status { color:#3D5A1A; padding:4px 14px; }
+.s1 .notch-bar { background: #dfd1bd; }
+.s1 .notch-pill { background: #cfc1ad; }
+.s1 .status { color: #3a2a0e; padding: 4px 14px; }
+
+/* Zapaticos animados CSS puro */
+.boots-wrap {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+.boot {
+  width: 22px;
+  height: 16px;
+  position: relative;
+}
+.boot-shaft {
+  position: absolute;
+  bottom: 5px;
+  left: 3px;
+  width: 11px;
+  height: 13px;
+  background: #6B7A42; /* green-d */
+  border-radius: 3px 3px 0 0;
+}
+.boot-toe {
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  width: 12px;
+  height: 8px;
+  background: #94A35D; /* green */
+  border-radius: 0 7px 2px 0;
+}
+.boot-sole {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: #3a2a0e;
+  border-radius: 0 0 6px 6px;
+}
+.boot-lace {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  height: 1.5px;
+  background: rgba(255,255,255,0.55);
+}
+.boot-lace-1 { bottom: 12px; }
+.boot-lace-2 { bottom: 15px; }
+
+/* Animación pasos alternos */
+.boot-l { animation: stepL 0.9s ease-in-out infinite; transform-origin: bottom center; }
+.boot-r { animation: stepR 0.9s ease-in-out infinite; transform-origin: bottom center; }
+
+@keyframes stepL {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  20%       { transform: translateY(-8px) rotate(-18deg); }
+  45%       { transform: translateY(-1px) rotate(4deg); }
+  65%, 80%  { transform: translateY(0) rotate(0deg); }
+}
+@keyframes stepR {
+  0%, 50%  { transform: translateY(0) rotate(0deg); }
+  70%      { transform: translateY(-8px) rotate(18deg); }
+  90%      { transform: translateY(-1px) rotate(-4deg); }
+  100%     { transform: translateY(0) rotate(0deg); }
+}
+
+/* city pills */
+.city-pill {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.16);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 100px;
+  padding: 3px 8px 3px 3px;
+}
+.city-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.city-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.city-name { font-size: 8px; font-weight: 700; color: #fff; white-space: nowrap; }
+
+/* Posiciones y animación flotante */
+.pill-vitoria { top: 12px; right: 12px; animation: float 3s ease-in-out infinite; }
+.pill-paris   { bottom: 38px; left: 12px; animation: float 3.5s ease-in-out 0.6s infinite; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
 
 .s1-body { padding:16px 14px 20px; }
 
