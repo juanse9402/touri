@@ -3,7 +3,7 @@
    Cache-first for static, progressive for audio
 ═══════════════════════════════════ */
 
-const CACHE_NAME = 'touri-v4';
+const CACHE_NAME = 'touri-v5';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
