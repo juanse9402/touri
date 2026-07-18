@@ -1,0 +1,25 @@
+{
+  "name": "Touri — Audio Tour",
+  "short_name": "Touri",
+  "description": "Audio tours GPS que se activan solos mientras caminas",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/",
+  "scope": "/",
+  "background_color": "#0F0E0B",
+  "theme_color": "#4A7C59",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

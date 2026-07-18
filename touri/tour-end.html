@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#4A7C59">
+  <meta name="description" content="Touri — ¡Tour completado! Comparte tu experiencia.">
+  <title>Touri — Tour Completado</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="end-screen" id="endScreen">
+    <!-- Star icon -->
+    <div class="end-icon animate-fade-in">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+    </div>
+
+    <!-- Eyebrow -->
+    <div class="end-eyebrow animate-fade-in animate-delay-1" data-i18n="end.completed">Tour completado</div>
+
+    <!-- Headline -->
+    <h1 class="end-headline animate-fade-in animate-delay-1" id="endHeadline">
+      Has descubierto<br><em>Vitoria-Gasteiz</em>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="end-sub animate-fade-in animate-delay-2" id="endSub">
+      30 paradas, 40 minutos. Ahora conoces la ciudad como un local.
+    </p>
+
+    <!-- Stats grid -->
+    <div class="end-stats animate-fade-in animate-delay-2">
+      <div class="end-stat">
+        <div class="end-stat-value" id="endStops">30</div>
+        <div class="end-stat-label" data-i18n="end.stat.stops">Paradas visitadas</div>
+      </div>
+      <div class="end-stat">
+        <div class="end-stat-value" id="endTime">41'</div>
+        <div class="end-stat-label" data-i18n="end.stat.time">Tiempo total</div>
+      </div>
+      <div class="end-stat">
+        <div class="end-stat-value" id="endKm">4.2</div>
+        <div class="end-stat-label" data-i18n="end.stat.km">km recorridos</div>
+      </div>
+      <div class="end-stat">
+        <div class="end-stat-value" id="endLangs">3</div>
+        <div class="end-stat-label" data-i18n="end.stat.langs">Idiomas disponibles</div>
+      </div>
+    </div>
+
+    <!-- Photo gallery -->
+    <div class="end-photos animate-fade-in animate-delay-3" id="endPhotos">
+      <!-- Filled dynamically -->
+    </div>
+
+    <!-- Buttons -->
+    <div class="end-buttons animate-fade-in animate-delay-4">
+      <button class="btn-secondary" onclick="shareExperience()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+        <span data-i18n="end.share">Compartir mi experiencia</span>
+      </button>
+      <button class="btn-primary" onclick="exploreTours()">
+        <span data-i18n="end.explore">Explorar otros tours</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="i18n.js"></script>
+  <script src="tour-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const tourId = params.get('id') || 'vitoria-casco-medieval';
+      const stopsVisited = params.get('stops') || '30';
+      const timeMinutes = params.get('time') || '40';
+      const km = params.get('km') || '4.2';
+
+      const tour = await TourData.loadTour(tourId);
+      const lang = getLang();
+
+      // Update headline
+      if (tour) {
+        const meta = TourData.getMeta(lang);
+        const cityName = meta.city;
+        document.getElementById('endHeadline').innerHTML =
+          `${t('end.discovered')}<br><em>${cityName}</em>`;
+        document.getElementById('endSub').textContent =
+          t('end.sub', { stops: stopsVisited, time: timeMinutes });
+      }
+
+      // Stats
+      document.getElementById('endStops').textContent = stopsVisited;
+      document.getElementById('endTime').textContent = timeMinutes + "'";
+      document.getElementById('endKm').textContent = km;
+      document.getElementById('endLangs').textContent = tour ? tour.languages.length : '3';
+
+      // Photo gallery
+      if (tour) {
+        const stops = TourData.getStops();
+        const photosContainer = document.getElementById('endPhotos');
+        let html = '';
+
+        // Show unique images from visited stops
+        const shownImages = new Set();
+        const maxPhotos = 6;
+
+        for (const stop of stops) {
+          if (shownImages.size >= maxPhotos) break;
+          if (stop.image && !shownImages.has(stop.image)) {
+            shownImages.add(stop.image);
+            html += `<div class="end-photo" style="background-image: url('${stop.image}');"></div>`;
+          }
+        }
+
+        // "More" card
+        const moreCount = Math.max(0, stops.length - shownImages.size);
+        if (moreCount > 0) {
+          html += `<div class="end-photo-more">+${moreCount}</div>`;
+        }
+
+        photosContainer.innerHTML = html;
+      }
+
+      // Clear tour state
+      TourData.clearState();
+    });
+
+    function shareExperience() {
+      const lang = getLang();
+      const shareData = {
+        title: 'Touri — Audio Tour',
+        text: lang === 'fr'
+          ? "J'ai découvert Vitoria-Gasteiz avec Touri ! 🎧🗺️ Un guide audio GPS qui s'active tout seul."
+          : lang === 'en'
+          ? "I discovered Vitoria-Gasteiz with Touri! 🎧🗺️ A GPS audio guide that activates automatically."
+          : "¡He descubierto Vitoria-Gasteiz con Touri! 🎧🗺️ Una guía de audio GPS que se activa sola.",
+        url: window.location.origin,
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(shareData.text + ' ' + shareData.url)
+          .then(() => showToast(lang === 'en' ? 'Copied to clipboard!' : lang === 'fr' ? 'Copié dans le presse-papier !' : '¡Copiado al portapapeles!'))
+          .catch(() => {});
+      }
+    }
+
+    function exploreTours() {
+      window.location.href = 'tours.html';
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+  </script>
+</body>
+</html>

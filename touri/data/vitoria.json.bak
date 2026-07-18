@@ -1,0 +1,447 @@
+{
+  "id": "vitoria-casco-medieval",
+  "version": "1.0",
+  "meta": {
+    "es": {
+      "name": "Casco Medieval e Historia Viva",
+      "description": "Recorre el corazón medieval de Vitoria-Gasteiz guiado por audio que se activa automáticamente. Sin auriculares, sin pantalla — solo escucha y camina.",
+      "city": "Vitoria-Gasteiz",
+      "country": "España"
+    },
+    "en": {
+      "name": "Medieval Quarter & Living History",
+      "description": "Walk through the medieval heart of Vitoria-Gasteiz guided by audio that activates automatically. No headphones, no screen — just listen and walk.",
+      "city": "Vitoria-Gasteiz",
+      "country": "Spain"
+    },
+    "fr": {
+      "name": "Quartier Médiéval et Histoire Vivante",
+      "description": "Parcourez le cœur médiéval de Vitoria-Gasteiz guidé par un audio qui s'active automatiquement. Sans écouteurs, sans écran — écoutez et marchez.",
+      "city": "Vitoria-Gasteiz",
+      "country": "Espagne"
+    }
+  },
+  "stats": {
+    "duration_min": 40,
+    "stops": 17,
+    "distance_km": 4.2,
+    "rating": 4.9
+  },
+  "languages": [
+    "es",
+    "en",
+    "fr"
+  ],
+  "cover_image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=800&q=80",
+  "ambient_music": "assets/audio/ambient/ambient-loop.mp3",
+  "stops": [
+    {
+      "id": 1,
+      "name": {
+        "es": "Parque de la Florida",
+        "en": "Parque de la Florida",
+        "fr": "Parque de la Florida"
+      },
+      "description": {
+        "es": "Bienvenido o bienvenida a Vitoria-Gasteiz.\n\nAntes de entrar al corazón medieval de la ciudad, nos tomamos un momento aquí, en el Parque de la Florida. Y lo hacemos con razón: este jardín es uno de los secretos mejor guardados de la ciudad... aunque esté justo en el centro.\n\nTienes alrededor más de cien especies de árboles diferentes. Fíjate en el gingko biloba que hay cerca de la entrada — es uno de los árboles más antiguos del planeta. Los dinosaurios ya lo conocían. Lleva aquí, en este parque, más de ciento cincuenta años.\n\nPero el árbol más famoso de la Florida es el que llaman el árbol del amor: una judas o árbol de los amorosos, que en primavera se llena de flores rosas directamente sobre la corteza, sin hojas, como si brotara desde dentro. Está considerado uno de los árboles más especiales de todo el País Vasco.\n\nVitoria-Gasteiz es la capital verde de Europa. Y empezamos aquí para que lo sientas antes de verlo.\n\nCuando estés listo, seguimos hacia la Catedral Nueva.",
+        "en": "Bienvenido o bienvenida a Vitoria-Gasteiz.\n\nAntes de entrar al corazón medieval de la ciudad, nos tomamos un momento aquí, en el Parque de la Florida. Y lo hacemos con razón: este jardín es uno de los secretos mejor guardados de la ciudad... aunque esté justo en el centro.\n\nTienes alrededor más de cien especies de árboles diferentes. Fíjate en el gingko biloba que hay cerca de la entrada — es uno de los árboles más antiguos del planeta. Los dinosaurios ya lo conocían. Lleva aquí, en este parque, más de ciento cincuenta años.\n\nPero el árbol más famoso de la Florida es el que llaman el árbol del amor: una judas o árbol de los amorosos, que en primavera se llena de flores rosas directamente sobre la corteza, sin hojas, como si brotara desde dentro. Está considerado uno de los árboles más especiales de todo el País Vasco.\n\nVitoria-Gasteiz es la capital verde de Europa. Y empezamos aquí para que lo sientas antes de verlo.\n\nCuando estés listo, seguimos hacia la Catedral Nueva.",
+        "fr": "Bienvenido o bienvenida a Vitoria-Gasteiz.\n\nAntes de entrar al corazón medieval de la ciudad, nos tomamos un momento aquí, en el Parque de la Florida. Y lo hacemos con razón: este jardín es uno de los secretos mejor guardados de la ciudad... aunque esté justo en el centro.\n\nTienes alrededor más de cien especies de árboles diferentes. Fíjate en el gingko biloba que hay cerca de la entrada — es uno de los árboles más antiguos del planeta. Los dinosaurios ya lo conocían. Lleva aquí, en este parque, más de ciento cincuenta años.\n\nPero el árbol más famoso de la Florida es el que llaman el árbol del amor: una judas o árbol de los amorosos, que en primavera se llena de flores rosas directamente sobre la corteza, sin hojas, como si brotara desde dentro. Está considerado uno de los árboles más especiales de todo el País Vasco.\n\nVitoria-Gasteiz es la capital verde de Europa. Y empezamos aquí para que lo sientas antes de verlo.\n\nCuando estés listo, seguimos hacia la Catedral Nueva."
+      },
+      "lat": 42.8443073,
+      "lon": -2.6763817,
+      "radius": 15,
+      "audio": {
+        "es": "audio/español/PARADA 01 — PARQUE DE LA FLORIDA.mp3",
+        "en": "audio/english/01_florida_español.mp3",
+        "fr": "audio/francais/01_florida_español.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80",
+      "play_on_start": true,
+      "auto_next": false
+    },
+    {
+      "id": 2,
+      "name": {
+        "es": "Catedral Nueva · María Inmaculada",
+        "en": "Catedral Nueva · María Inmaculada",
+        "fr": "Catedral Nueva · María Inmaculada"
+      },
+      "description": {
+        "es": "Esta catedral tiene algo que pocas en el mundo pueden decir: lleva más de cien años construyéndose y todavía no ha terminado.\n\nSe comenzó en 1907 en estilo neogótico, imitando las grandes catedrales medievales de Europa. Pero las obras se detuvieron una y otra vez por falta de fondos. Hoy, en el siglo veintiuno, aún se siguen añadiendo elementos. Es, literalmente, una catedral en construcción permanente.\n\nLo que sí está terminado es extraordinario. Mira las vidrieras: son algunas de las más grandes y mejor conservadas del norte de España. La luz que entra por ellas cambia según la hora del día y la estación del año.\n\nDesde la azotea, a veintidós metros de altura, se ven las cuatro torres medievales del casco histórico. Las mismas que vamos a visitar hoy, una a una.\n\nY si la catedral vieja tiene a Ken Follett como fan, esta tiene algo igualmente poderoso: la paciencia de una ciudad que lleva más de un siglo construyendo algo sin prisa, porque sabe que lo más bello tarda tiempo.\n\nContinuamos hacia el corazón de Vitoria.",
+        "en": "Esta catedral tiene algo que pocas en el mundo pueden decir: lleva más de cien años construyéndose y todavía no ha terminado.\n\nSe comenzó en 1907 en estilo neogótico, imitando las grandes catedrales medievales de Europa. Pero las obras se detuvieron una y otra vez por falta de fondos. Hoy, en el siglo veintiuno, aún se siguen añadiendo elementos. Es, literalmente, una catedral en construcción permanente.\n\nLo que sí está terminado es extraordinario. Mira las vidrieras: son algunas de las más grandes y mejor conservadas del norte de España. La luz que entra por ellas cambia según la hora del día y la estación del año.\n\nDesde la azotea, a veintidós metros de altura, se ven las cuatro torres medievales del casco histórico. Las mismas que vamos a visitar hoy, una a una.\n\nY si la catedral vieja tiene a Ken Follett como fan, esta tiene algo igualmente poderoso: la paciencia de una ciudad que lleva más de un siglo construyendo algo sin prisa, porque sabe que lo más bello tarda tiempo.\n\nContinuamos hacia el corazón de Vitoria.",
+        "fr": "Esta catedral tiene algo que pocas en el mundo pueden decir: lleva más de cien años construyéndose y todavía no ha terminado.\n\nSe comenzó en 1907 en estilo neogótico, imitando las grandes catedrales medievales de Europa. Pero las obras se detuvieron una y otra vez por falta de fondos. Hoy, en el siglo veintiuno, aún se siguen añadiendo elementos. Es, literalmente, una catedral en construcción permanente.\n\nLo que sí está terminado es extraordinario. Mira las vidrieras: son algunas de las más grandes y mejor conservadas del norte de España. La luz que entra por ellas cambia según la hora del día y la estación del año.\n\nDesde la azotea, a veintidós metros de altura, se ven las cuatro torres medievales del casco histórico. Las mismas que vamos a visitar hoy, una a una.\n\nY si la catedral vieja tiene a Ken Follett como fan, esta tiene algo igualmente poderoso: la paciencia de una ciudad que lleva más de un siglo construyendo algo sin prisa, porque sabe que lo más bello tarda tiempo.\n\nContinuamos hacia el corazón de Vitoria."
+      },
+      "lat": 42.8454662,
+      "lon": -2.6771675,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 02 — CATEDRAL NUEVA (MARÍA INMACULADA).mp3",
+        "en": "audio/english/02_catedralnueva_español.mp3",
+        "fr": "audio/francais/02_catedralnueva_español.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 3,
+      "name": {
+        "es": "Plaza de la Virgen Blanca",
+        "en": "Plaza de la Virgen Blanca",
+        "fr": "Plaza de la Virgen Blanca"
+      },
+      "description": {
+        "es": "Estás en el corazón de Vitoria-Gasteiz.\n\nEsta plaza ha sido el centro de la vida de la ciudad durante siglos. Mercados, celebraciones, batallas y fiestas. Todo ha pasado aquí.\n\nEl monumento del centro conmemora la batalla de Vitoria de 1813, uno de los enfrentamientos más grandes de las guerras napoleónicas en España. Participaron más de ciento cuarenta mil soldados de cuatro países distintos. Fue el principio del fin del dominio francés en la Península Ibérica.\n\nPero la tradición más querida de esta plaza no es histórica: es festiva. Cada cuatro de agosto, a las seis de la tarde exactas, un muñeco llamado Celedón baja desde la torre de San Miguel — justo la que tienes delante — en dirección a esta plaza. Sostiene un paraguas y fuma en pipa mientras desciende por un cable. En el momento en que toca suelo, comienzan las fiestas patronales de Vitoria. Ciento cincuenta mil personas estallan en confeti y vino blanco al mismo tiempo.\n\nImagínalo por un momento. Ahora sigues tú: vamos a San Miguel.",
+        "en": "Estás en el corazón de Vitoria-Gasteiz.\n\nEsta plaza ha sido el centro de la vida de la ciudad durante siglos. Mercados, celebraciones, batallas y fiestas. Todo ha pasado aquí.\n\nEl monumento del centro conmemora la batalla de Vitoria de 1813, uno de los enfrentamientos más grandes de las guerras napoleónicas en España. Participaron más de ciento cuarenta mil soldados de cuatro países distintos. Fue el principio del fin del dominio francés en la Península Ibérica.\n\nPero la tradición más querida de esta plaza no es histórica: es festiva. Cada cuatro de agosto, a las seis de la tarde exactas, un muñeco llamado Celedón baja desde la torre de San Miguel — justo la que tienes delante — en dirección a esta plaza. Sostiene un paraguas y fuma en pipa mientras desciende por un cable. En el momento en que toca suelo, comienzan las fiestas patronales de Vitoria. Ciento cincuenta mil personas estallan en confeti y vino blanco al mismo tiempo.\n\nImagínalo por un momento. Ahora sigues tú: vamos a San Miguel.",
+        "fr": "Estás en el corazón de Vitoria-Gasteiz.\n\nEsta plaza ha sido el centro de la vida de la ciudad durante siglos. Mercados, celebraciones, batallas y fiestas. Todo ha pasado aquí.\n\nEl monumento del centro conmemora la batalla de Vitoria de 1813, uno de los enfrentamientos más grandes de las guerras napoleónicas en España. Participaron más de ciento cuarenta mil soldados de cuatro países distintos. Fue el principio del fin del dominio francés en la Península Ibérica.\n\nPero la tradición más querida de esta plaza no es histórica: es festiva. Cada cuatro de agosto, a las seis de la tarde exactas, un muñeco llamado Celedón baja desde la torre de San Miguel — justo la que tienes delante — en dirección a esta plaza. Sostiene un paraguas y fuma en pipa mientras desciende por un cable. En el momento en que toca suelo, comienzan las fiestas patronales de Vitoria. Ciento cincuenta mil personas estallan en confeti y vino blanco al mismo tiempo.\n\nImagínalo por un momento. Ahora sigues tú: vamos a San Miguel."
+      },
+      "lat": 42.8466368,
+      "lon": -2.6734755,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 03 — PLAZA DE LA VIRGEN BLANCA.mp3",
+        "en": "audio/english/03_virgenblanca_español.mp3",
+        "fr": "audio/francais/03_virgenblanca_español.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 4,
+      "name": {
+        "es": "Iglesia San Miguel · Torre 1 de 4",
+        "en": "Iglesia San Miguel · Torre 1 de 4",
+        "fr": "Iglesia San Miguel · Torre 1 de 4"
+      },
+      "description": {
+        "es": "La iglesia que tienes delante es la más antigua de Vitoria, y nació el mismo año que la ciudad.\n\nEn el año 1181, el rey Sancho VI de Navarra fundó Nueva Victoria — que con el tiempo se convertiría en Vitoria-Gasteiz. Y junto a la ciudad, mandó construir esta iglesia. Son exactamente de la misma edad.\n\nDentro, lo más valioso es su retablo barroco, obra de Gregorio Fernández entre 1624 y 1632. Los expertos lo consideran el mejor retablo del siglo diecisiete en todo el País Vasco. Cada figura fue tallada a mano, con una expresión diferente. Algunos historiadores dicen que Fernández usaba modelos reales — mendigos, comerciantes, vecinos de la época — para dar vida a sus santos.\n\nPero la imagen más venerada de la iglesia no es el retablo: es una pequeña escultura de la Virgen Blanca, patrona de la ciudad, que guarda en uno de sus altares laterales. La misma Virgen que da nombre a la plaza que acabas de cruzar.\n\nEsta es la primera de las cuatro torres. Hay tres más esperándote.",
+        "en": "La iglesia que tienes delante es la más antigua de Vitoria, y nació el mismo año que la ciudad.\n\nEn el año 1181, el rey Sancho VI de Navarra fundó Nueva Victoria — que con el tiempo se convertiría en Vitoria-Gasteiz. Y junto a la ciudad, mandó construir esta iglesia. Son exactamente de la misma edad.\n\nDentro, lo más valioso es su retablo barroco, obra de Gregorio Fernández entre 1624 y 1632. Los expertos lo consideran el mejor retablo del siglo diecisiete en todo el País Vasco. Cada figura fue tallada a mano, con una expresión diferente. Algunos historiadores dicen que Fernández usaba modelos reales — mendigos, comerciantes, vecinos de la época — para dar vida a sus santos.\n\nPero la imagen más venerada de la iglesia no es el retablo: es una pequeña escultura de la Virgen Blanca, patrona de la ciudad, que guarda en uno de sus altares laterales. La misma Virgen que da nombre a la plaza que acabas de cruzar.\n\nEsta es la primera de las cuatro torres. Hay tres más esperándote.",
+        "fr": "La iglesia que tienes delante es la más antigua de Vitoria, y nació el mismo año que la ciudad.\n\nEn el año 1181, el rey Sancho VI de Navarra fundó Nueva Victoria — que con el tiempo se convertiría en Vitoria-Gasteiz. Y junto a la ciudad, mandó construir esta iglesia. Son exactamente de la misma edad.\n\nDentro, lo más valioso es su retablo barroco, obra de Gregorio Fernández entre 1624 y 1632. Los expertos lo consideran el mejor retablo del siglo diecisiete en todo el País Vasco. Cada figura fue tallada a mano, con una expresión diferente. Algunos historiadores dicen que Fernández usaba modelos reales — mendigos, comerciantes, vecinos de la época — para dar vida a sus santos.\n\nPero la imagen más venerada de la iglesia no es el retablo: es una pequeña escultura de la Virgen Blanca, patrona de la ciudad, que guarda en uno de sus altares laterales. La misma Virgen que da nombre a la plaza que acabas de cruzar.\n\nEsta es la primera de las cuatro torres. Hay tres más esperándote."
+      },
+      "lat": 42.8473818,
+      "lon": -2.6728734,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 04 — IGLESIA DE SAN MIGUEL (TORRE 1 DE 4).mp3",
+        "en": "audio/english/04_Sanmiguel_español.mp3",
+        "fr": "audio/francais/04_Sanmiguel_español.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 5,
+      "name": {
+        "es": "Plaza España y Los Arquillos",
+        "en": "Plaza España y Los Arquillos",
+        "fr": "Plaza España y Los Arquillos"
+      },
+      "description": {
+        "es": "Lo que ves aquí no es solo una plaza bonita. Es una solución de ingeniería.\n\nA finales del siglo dieciocho, Vitoria tenía un problema: el casco medieval estaba construido sobre una colina, y la ciudad nueva que crecía hacia el sur estaba muchos metros más abajo. Conectar las dos partes era un reto enorme.\n\nLa solución fue Los Arquillos: una calle con soportales que salva veintitrés metros de desnivel en apenas cien metros de longitud. Debajo de las casas que ves hay arcos que sostienen el conjunto, como si los edificios flotaran sobre el desnivel del terreno.\n\nLa Plaza España, con sus soportales porticados y su arquitectura neoclásica uniforme, fue diseñada para completar el conjunto. Toda la fachada norte y sur es simétrica, algo poco frecuente en las plazas españolas de la época.\n\nMíralo desde el centro: parece una plaza normal. Pero si vas al extremo y miras hacia abajo, entiendes el truco. Un truco de hace doscientos años que todavía funciona.",
+        "en": "Lo que ves aquí no es solo una plaza bonita. Es una solución de ingeniería.\n\nA finales del siglo dieciocho, Vitoria tenía un problema: el casco medieval estaba construido sobre una colina, y la ciudad nueva que crecía hacia el sur estaba muchos metros más abajo. Conectar las dos partes era un reto enorme.\n\nLa solución fue Los Arquillos: una calle con soportales que salva veintitrés metros de desnivel en apenas cien metros de longitud. Debajo de las casas que ves hay arcos que sostienen el conjunto, como si los edificios flotaran sobre el desnivel del terreno.\n\nLa Plaza España, con sus soportales porticados y su arquitectura neoclásica uniforme, fue diseñada para completar el conjunto. Toda la fachada norte y sur es simétrica, algo poco frecuente en las plazas españolas de la época.\n\nMíralo desde el centro: parece una plaza normal. Pero si vas al extremo y miras hacia abajo, entiendes el truco. Un truco de hace doscientos años que todavía funciona.",
+        "fr": "Lo que ves aquí no es solo una plaza bonita. Es una solución de ingeniería.\n\nA finales del siglo dieciocho, Vitoria tenía un problema: el casco medieval estaba construido sobre una colina, y la ciudad nueva que crecía hacia el sur estaba muchos metros más abajo. Conectar las dos partes era un reto enorme.\n\nLa solución fue Los Arquillos: una calle con soportales que salva veintitrés metros de desnivel en apenas cien metros de longitud. Debajo de las casas que ves hay arcos que sostienen el conjunto, como si los edificios flotaran sobre el desnivel del terreno.\n\nLa Plaza España, con sus soportales porticados y su arquitectura neoclásica uniforme, fue diseñada para completar el conjunto. Toda la fachada norte y sur es simétrica, algo poco frecuente en las plazas españolas de la época.\n\nMíralo desde el centro: parece una plaza normal. Pero si vas al extremo y miras hacia abajo, entiendes el truco. Un truco de hace doscientos años que todavía funciona."
+      },
+      "lat": 42.8463293,
+      "lon": -2.6722855,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 05 — PLAZA ESPAÑA Y LOS ARQUILLOS.mp3",
+        "en": "audio/english/05_arquillos_español.mp3",
+        "fr": "audio/francais/05_arquillos_español.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 6,
+      "name": {
+        "es": "Iglesia San Vicente · Torre 2 de 4",
+        "en": "Iglesia San Vicente · Torre 2 de 4",
+        "fr": "Iglesia San Vicente · Torre 2 de 4"
+      },
+      "description": {
+        "es": "Esta es la iglesia más alta del casco medieval. Y tiene un origen que no todo el mundo conoce.\n\nSan Vicente se construyó literalmente encima del antiguo castillo de Gasteiz. El asentamiento vasco más antiguo de este territorio estaba aquí, en este mismo punto. Cuando los arquitectos medievales buscaron el lugar más prominente para levantar una iglesia, eligieron exactamente el mismo sitio que los primeros pobladores habían elegido siglos antes para defenderse. La historia tiene esa lógica.\n\nLa construcción fue la más tardía de las cuatro iglesias medievales de la almendra. Se terminó entre los siglos quince y dieciséis, cuando el gótico ya evolucionaba hacia otros estilos. Por eso tiene detalles que las otras no tienen.\n\nEn verano se puede subir a su torre. Las vistas del casco medieval desde ahí arriba son las mejores de la ciudad: ves perfectamente el trazado en espina de pez de las calles medievales, exactamente igual que en el siglo doce.\n\nLlevas dos torres. Dos más y habrás conquistado la almendra.",
+        "en": "Esta es la iglesia más alta del casco medieval. Y tiene un origen que no todo el mundo conoce.\n\nSan Vicente se construyó literalmente encima del antiguo castillo de Gasteiz. El asentamiento vasco más antiguo de este territorio estaba aquí, en este mismo punto. Cuando los arquitectos medievales buscaron el lugar más prominente para levantar una iglesia, eligieron exactamente el mismo sitio que los primeros pobladores habían elegido siglos antes para defenderse. La historia tiene esa lógica.\n\nLa construcción fue la más tardía de las cuatro iglesias medievales de la almendra. Se terminó entre los siglos quince y dieciséis, cuando el gótico ya evolucionaba hacia otros estilos. Por eso tiene detalles que las otras no tienen.\n\nEn verano se puede subir a su torre. Las vistas del casco medieval desde ahí arriba son las mejores de la ciudad: ves perfectamente el trazado en espina de pez de las calles medievales, exactamente igual que en el siglo doce.\n\nLlevas dos torres. Dos más y habrás conquistado la almendra.",
+        "fr": "Esta es la iglesia más alta del casco medieval. Y tiene un origen que no todo el mundo conoce.\n\nSan Vicente se construyó literalmente encima del antiguo castillo de Gasteiz. El asentamiento vasco más antiguo de este territorio estaba aquí, en este mismo punto. Cuando los arquitectos medievales buscaron el lugar más prominente para levantar una iglesia, eligieron exactamente el mismo sitio que los primeros pobladores habían elegido siglos antes para defenderse. La historia tiene esa lógica.\n\nLa construcción fue la más tardía de las cuatro iglesias medievales de la almendra. Se terminó entre los siglos quince y dieciséis, cuando el gótico ya evolucionaba hacia otros estilos. Por eso tiene detalles que las otras no tienen.\n\nEn verano se puede subir a su torre. Las vistas del casco medieval desde ahí arriba son las mejores de la ciudad: ves perfectamente el trazado en espina de pez de las calles medievales, exactamente igual que en el siglo doce.\n\nLlevas dos torres. Dos más y habrás conquistado la almendra."
+      },
+      "lat": 42.8477729,
+      "lon": -2.6714436,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 06 — IGLESIA DE SAN VICENTE MÁRTIR (TORRE 2 DE 4).mp3",
+        "en": "audio/english/06_sanvicente_español.mp3",
+        "fr": "audio/francais/06_sanvicente_español.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 7,
+      "name": {
+        "es": "Los Cantones",
+        "en": "Los Cantones",
+        "fr": "Los Cantones"
+      },
+      "description": {
+        "es": "Bienvenido a los cantones.\n\nEl casco medieval de Vitoria tiene una estructura muy particular: unas calles largas y paralelas que van de norte a sur — Correría, Zapatería, Herrería, Cuchillería — y unas calles cortas y perpendiculares que las cruzan. Esas calles cortas son los cantones.\n\nEl nombre viene del latín: \"canto\" significaba esquina o rincón. Los cantones eran las esquinas que conectaban los barrios de los distintos gremios. Cada calle principal albergaba un oficio diferente: los zapateros en Zapatería, los herreros en Herrería, los cuchilleros en Cuchillería. La ciudad medieval era una ciudad organizada por trabajo y vecindad.\n\nHoy caminando por estos cantones, estás siguiendo exactamente el mismo trazado del siglo doce. Las calles no han cambiado de lugar. Solo han cambiado los oficios.\n\nCierra los ojos un momento. Imagina el ruido de los talleres, el olor del cuero, el sonido del metal. Luego ábrelos. La piedra sigue siendo la misma.",
+        "en": "Bienvenido a los cantones.\n\nEl casco medieval de Vitoria tiene una estructura muy particular: unas calles largas y paralelas que van de norte a sur — Correría, Zapatería, Herrería, Cuchillería — y unas calles cortas y perpendiculares que las cruzan. Esas calles cortas son los cantones.\n\nEl nombre viene del latín: \"canto\" significaba esquina o rincón. Los cantones eran las esquinas que conectaban los barrios de los distintos gremios. Cada calle principal albergaba un oficio diferente: los zapateros en Zapatería, los herreros en Herrería, los cuchilleros en Cuchillería. La ciudad medieval era una ciudad organizada por trabajo y vecindad.\n\nHoy caminando por estos cantones, estás siguiendo exactamente el mismo trazado del siglo doce. Las calles no han cambiado de lugar. Solo han cambiado los oficios.\n\nCierra los ojos un momento. Imagina el ruido de los talleres, el olor del cuero, el sonido del metal. Luego ábrelos. La piedra sigue siendo la misma.",
+        "fr": "Bienvenido a los cantones.\n\nEl casco medieval de Vitoria tiene una estructura muy particular: unas calles largas y paralelas que van de norte a sur — Correría, Zapatería, Herrería, Cuchillería — y unas calles cortas y perpendiculares que las cruzan. Esas calles cortas son los cantones.\n\nEl nombre viene del latín: \"canto\" significaba esquina o rincón. Los cantones eran las esquinas que conectaban los barrios de los distintos gremios. Cada calle principal albergaba un oficio diferente: los zapateros en Zapatería, los herreros en Herrería, los cuchilleros en Cuchillería. La ciudad medieval era una ciudad organizada por trabajo y vecindad.\n\nHoy caminando por estos cantones, estás siguiendo exactamente el mismo trazado del siglo doce. Las calles no han cambiado de lugar. Solo han cambiado los oficios.\n\nCierra los ojos un momento. Imagina el ruido de los talleres, el olor del cuero, el sonido del metal. Luego ábrelos. La piedra sigue siendo la misma."
+      },
+      "lat": 42.8491,
+      "lon": -2.6736,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 07 — LOS CANTONES.mp3",
+        "en": "audio/english/07_cantones_español.mp3",
+        "fr": "audio/francais/07_cantones_español.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 8,
+      "name": {
+        "es": "Los Cañós",
+        "en": "Los Cañós",
+        "fr": "Los Cañós"
+      },
+      "description": {
+        "es": "Esta fuente que tienes delante era, en la Edad Media, una cuestión de vida o muerte.\n\nLos Cañós — en euskera, los caños — era la fuente principal del casco medieval de Vitoria. Durante siglos, el agua que abastecía a toda la población del recinto amurallado llegaba hasta aquí, por una red de tuberías de barro y piedra que traía el agua desde manantiales de las afueras.\n\nLas fuentes medievales no eran solo infraestructura. Eran el punto de encuentro de la comunidad. Aquí venían cada mañana las vecinas con sus cántaros. Aquí se escuchaban los rumores de la ciudad, se tomaban decisiones y se resolvían disputas.\n\nLo que ves hoy es una reconstrucción, pero en el mismo emplazamiento original. Si miras la pared de fondo, el escudo que aparece es el de la ciudad de Vitoria en época medieval: diferente al que conocemos hoy, pero con la misma función: marcar que esto era un bien público.\n\nEl agua siempre fue de todos. En eso, la Edad Media tenía razón.",
+        "en": "Esta fuente que tienes delante era, en la Edad Media, una cuestión de vida o muerte.\n\nLos Cañós — en euskera, los caños — era la fuente principal del casco medieval de Vitoria. Durante siglos, el agua que abastecía a toda la población del recinto amurallado llegaba hasta aquí, por una red de tuberías de barro y piedra que traía el agua desde manantiales de las afueras.\n\nLas fuentes medievales no eran solo infraestructura. Eran el punto de encuentro de la comunidad. Aquí venían cada mañana las vecinas con sus cántaros. Aquí se escuchaban los rumores de la ciudad, se tomaban decisiones y se resolvían disputas.\n\nLo que ves hoy es una reconstrucción, pero en el mismo emplazamiento original. Si miras la pared de fondo, el escudo que aparece es el de la ciudad de Vitoria en época medieval: diferente al que conocemos hoy, pero con la misma función: marcar que esto era un bien público.\n\nEl agua siempre fue de todos. En eso, la Edad Media tenía razón.",
+        "fr": "Esta fuente que tienes delante era, en la Edad Media, una cuestión de vida o muerte.\n\nLos Cañós — en euskera, los caños — era la fuente principal del casco medieval de Vitoria. Durante siglos, el agua que abastecía a toda la población del recinto amurallado llegaba hasta aquí, por una red de tuberías de barro y piedra que traía el agua desde manantiales de las afueras.\n\nLas fuentes medievales no eran solo infraestructura. Eran el punto de encuentro de la comunidad. Aquí venían cada mañana las vecinas con sus cántaros. Aquí se escuchaban los rumores de la ciudad, se tomaban decisiones y se resolvían disputas.\n\nLo que ves hoy es una reconstrucción, pero en el mismo emplazamiento original. Si miras la pared de fondo, el escudo que aparece es el de la ciudad de Vitoria en época medieval: diferente al que conocemos hoy, pero con la misma función: marcar que esto era un bien público.\n\nEl agua siempre fue de todos. En eso, la Edad Media tenía razón."
+      },
+      "lat": 42.848518,
+      "lon": -2.6739093,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 08 — LOS CAÑÓS.mp3",
+        "en": "audio/english/08_placeholder.mp3",
+        "fr": "audio/francais/08_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 9,
+      "name": {
+        "es": "El Portalón",
+        "en": "El Portalón",
+        "fr": "El Portalón"
+      },
+      "description": {
+        "es": "El edificio que tienes delante tiene quinientos años. Y todavía está en pie, todavía en uso, todavía recibiendo gente.\n\nEl Portalón fue construido en el siglo quince como hospedería y posada para los viajeros que llegaban a Vitoria por los caminos medievales. Era el equivalente a un hotel de cinco estrellas de la época: los comerciantes que venían de Flandes, de Castilla, de Navarra, se hospedaban aquí.\n\nLo que ves en la fachada — esas vigas de madera que sobresalen, esa estructura de entramado — es arquitectura civil medieval auténtica. No hay muchos edificios así de bien conservados en todo el norte de España. Las vigas originales de roble llevan aquí desde el siglo quince.\n\nHoy es un restaurante. Pero si entras — y te animamos a que lo hagas, aunque sea solo a tomar algo — verás que el interior conserva muebles vascos de época, una bodega histórica y un patio interior que parece detenido en el tiempo.\n\nQuinientos años de bienvenidas. Esta es la más reciente.",
+        "en": "El edificio que tienes delante tiene quinientos años. Y todavía está en pie, todavía en uso, todavía recibiendo gente.\n\nEl Portalón fue construido en el siglo quince como hospedería y posada para los viajeros que llegaban a Vitoria por los caminos medievales. Era el equivalente a un hotel de cinco estrellas de la época: los comerciantes que venían de Flandes, de Castilla, de Navarra, se hospedaban aquí.\n\nLo que ves en la fachada — esas vigas de madera que sobresalen, esa estructura de entramado — es arquitectura civil medieval auténtica. No hay muchos edificios así de bien conservados en todo el norte de España. Las vigas originales de roble llevan aquí desde el siglo quince.\n\nHoy es un restaurante. Pero si entras — y te animamos a que lo hagas, aunque sea solo a tomar algo — verás que el interior conserva muebles vascos de época, una bodega histórica y un patio interior que parece detenido en el tiempo.\n\nQuinientos años de bienvenidas. Esta es la más reciente.",
+        "fr": "El edificio que tienes delante tiene quinientos años. Y todavía está en pie, todavía en uso, todavía recibiendo gente.\n\nEl Portalón fue construido en el siglo quince como hospedería y posada para los viajeros que llegaban a Vitoria por los caminos medievales. Era el equivalente a un hotel de cinco estrellas de la época: los comerciantes que venían de Flandes, de Castilla, de Navarra, se hospedaban aquí.\n\nLo que ves en la fachada — esas vigas de madera que sobresalen, esa estructura de entramado — es arquitectura civil medieval auténtica. No hay muchos edificios así de bien conservados en todo el norte de España. Las vigas originales de roble llevan aquí desde el siglo quince.\n\nHoy es un restaurante. Pero si entras — y te animamos a que lo hagas, aunque sea solo a tomar algo — verás que el interior conserva muebles vascos de época, una bodega histórica y un patio interior que parece detenido en el tiempo.\n\nQuinientos años de bienvenidas. Esta es la más reciente."
+      },
+      "lat": 42.851334,
+      "lon": -2.6731168,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 09 — EL PORTALÓN.mp3",
+        "en": "audio/english/09_placeholder.mp3",
+        "fr": "audio/francais/09_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 10,
+      "name": {
+        "es": "Mural El Triunfo de Vitoria",
+        "en": "Mural El Triunfo de Vitoria",
+        "fr": "Mural El Triunfo de Vitoria"
+      },
+      "description": {
+        "es": "Este mural de doscientos veinticinco metros cuadrados es el más fotografiado del itinerario muralístico de Vitoria. Y cuando lo veas, entenderás por qué.\n\nLa escena está inspirada en el cuadro \"El Tahúr\" del pintor francés Georges de La Tour, del siglo diecisiete. Pero la versión de Vitoria tiene un giro: en el centro de la composición hay una figura femenina majestuosa que representa a la propia ciudad — la Dama Vitoria. Está jugando a las cartas. Y uno de sus contrincantes está haciendo trampa.\n\nPero la Dama lo sabe. Su criada se lo está advirtiendo con la mirada.\n\nEl mensaje es claro y lleva en esta pared desde 2009: Vitoria no se deja engañar. La ciudad que fue conquistada, disputada y reclamada por reyes, ejércitos y comerciantes durante siglos, siempre encontró la forma de seguir siendo ella misma.\n\nHay más de cuarenta murales en el casco medieval y los barrios de Vitoria. Este es el que mejor cuenta quién es la ciudad.",
+        "en": "Este mural de doscientos veinticinco metros cuadrados es el más fotografiado del itinerario muralístico de Vitoria. Y cuando lo veas, entenderás por qué.\n\nLa escena está inspirada en el cuadro \"El Tahúr\" del pintor francés Georges de La Tour, del siglo diecisiete. Pero la versión de Vitoria tiene un giro: en el centro de la composición hay una figura femenina majestuosa que representa a la propia ciudad — la Dama Vitoria. Está jugando a las cartas. Y uno de sus contrincantes está haciendo trampa.\n\nPero la Dama lo sabe. Su criada se lo está advirtiendo con la mirada.\n\nEl mensaje es claro y lleva en esta pared desde 2009: Vitoria no se deja engañar. La ciudad que fue conquistada, disputada y reclamada por reyes, ejércitos y comerciantes durante siglos, siempre encontró la forma de seguir siendo ella misma.\n\nHay más de cuarenta murales en el casco medieval y los barrios de Vitoria. Este es el que mejor cuenta quién es la ciudad.",
+        "fr": "Este mural de doscientos veinticinco metros cuadrados es el más fotografiado del itinerario muralístico de Vitoria. Y cuando lo veas, entenderás por qué.\n\nLa escena está inspirada en el cuadro \"El Tahúr\" del pintor francés Georges de La Tour, del siglo diecisiete. Pero la versión de Vitoria tiene un giro: en el centro de la composición hay una figura femenina majestuosa que representa a la propia ciudad — la Dama Vitoria. Está jugando a las cartas. Y uno de sus contrincantes está haciendo trampa.\n\nPero la Dama lo sabe. Su criada se lo está advirtiendo con la mirada.\n\nEl mensaje es claro y lleva en esta pared desde 2009: Vitoria no se deja engañar. La ciudad que fue conquistada, disputada y reclamada por reyes, ejércitos y comerciantes durante siglos, siempre encontró la forma de seguir siendo ella misma.\n\nHay más de cuarenta murales en el casco medieval y los barrios de Vitoria. Este es el que mejor cuenta quién es la ciudad."
+      },
+      "lat": 42.8491556,
+      "lon": -2.6725776,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 10 — MURAL EL TRIUNFO DE VITORIA.mp3",
+        "en": "audio/english/10_placeholder.mp3",
+        "fr": "audio/francais/10_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 11,
+      "name": {
+        "es": "Catedral de Santa María · Torre 3 de 4",
+        "en": "Catedral de Santa María · Torre 3 de 4",
+        "fr": "Catedral de Santa María · Torre 3 de 4"
+      },
+      "description": {
+        "es": "Esto es lo que más visitan los turistas en Vitoria-Gasteiz. Y hay una razón muy particular.\n\nLa Catedral de Santa María es gótica, del siglo trece al catorce. Hasta aquí, normal. Pero lo que la hace única en el mundo es su forma de visitar: el proyecto se llama \"Abierto por obras\", y permite a los visitantes ver la catedral mientras está siendo restaurada. Andamios, técnicos trabajando, piedras desmontadas. La historia del edificio al descubierto, literalmente.\n\nDurante las obras se descubrió algo increíble: la catedral tiene errores estructurales que llevan aquí desde el principio. Los arquitectos medievales cometieron fallos de cálculo y los fueron corrigiendo sobre la marcha, sin parar la construcción. Los contrafuertes que ves en el exterior no estaban en el plan original. Los añadieron porque la estructura empezaba a abrirse.\n\nKen Follett, el autor de \"Los pilares de la Tierra\", visitó la catedral en 2006. Quedó tan impresionado que declaró que si hubiera conocido este edificio antes, su novela habría sido diferente. Desde entonces, viene casi cada año.\n\nSi puedes hacer la visita guiada, hazla. Es una de las experiencias más singulares que puedes tener en una catedral española.\n\nEsta es la tercera torre. Una más.",
+        "en": "Esto es lo que más visitan los turistas en Vitoria-Gasteiz. Y hay una razón muy particular.\n\nLa Catedral de Santa María es gótica, del siglo trece al catorce. Hasta aquí, normal. Pero lo que la hace única en el mundo es su forma de visitar: el proyecto se llama \"Abierto por obras\", y permite a los visitantes ver la catedral mientras está siendo restaurada. Andamios, técnicos trabajando, piedras desmontadas. La historia del edificio al descubierto, literalmente.\n\nDurante las obras se descubrió algo increíble: la catedral tiene errores estructurales que llevan aquí desde el principio. Los arquitectos medievales cometieron fallos de cálculo y los fueron corrigiendo sobre la marcha, sin parar la construcción. Los contrafuertes que ves en el exterior no estaban en el plan original. Los añadieron porque la estructura empezaba a abrirse.\n\nKen Follett, el autor de \"Los pilares de la Tierra\", visitó la catedral en 2006. Quedó tan impresionado que declaró que si hubiera conocido este edificio antes, su novela habría sido diferente. Desde entonces, viene casi cada año.\n\nSi puedes hacer la visita guiada, hazla. Es una de las experiencias más singulares que puedes tener en una catedral española.\n\nEsta es la tercera torre. Una más.",
+        "fr": "Esto es lo que más visitan los turistas en Vitoria-Gasteiz. Y hay una razón muy particular.\n\nLa Catedral de Santa María es gótica, del siglo trece al catorce. Hasta aquí, normal. Pero lo que la hace única en el mundo es su forma de visitar: el proyecto se llama \"Abierto por obras\", y permite a los visitantes ver la catedral mientras está siendo restaurada. Andamios, técnicos trabajando, piedras desmontadas. La historia del edificio al descubierto, literalmente.\n\nDurante las obras se descubrió algo increíble: la catedral tiene errores estructurales que llevan aquí desde el principio. Los arquitectos medievales cometieron fallos de cálculo y los fueron corrigiendo sobre la marcha, sin parar la construcción. Los contrafuertes que ves en el exterior no estaban en el plan original. Los añadieron porque la estructura empezaba a abrirse.\n\nKen Follett, el autor de \"Los pilares de la Tierra\", visitó la catedral en 2006. Quedó tan impresionado que declaró que si hubiera conocido este edificio antes, su novela habría sido diferente. Desde entonces, viene casi cada año.\n\nSi puedes hacer la visita guiada, hazla. Es una de las experiencias más singulares que puedes tener en una catedral española.\n\nEsta es la tercera torre. Una más."
+      },
+      "lat": 42.850773,
+      "lon": -2.672535,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 11 — CATEDRAL DE SANTA MARÍA (TORRE 3 DE 4).mp3",
+        "en": "audio/english/11_placeholder.mp3",
+        "fr": "audio/francais/11_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 12,
+      "name": {
+        "es": "Palacio Escoriaza-Esquivel",
+        "en": "Palacio Escoriaza-Esquivel",
+        "fr": "Palacio Escoriaza-Esquivel"
+      },
+      "description": {
+        "es": "Este palacio guarda una historia de ambición, de dinero y de un hombre que nunca llegó a vivir en él.\n\nFernán López de Escoriaza fue médico personal del rey Enrique VIII de Inglaterra y, más tarde, del rey Carlos I de España. Acumuló una fortuna considerable y decidió construir el palacio más lujoso que Vitoria había visto hasta entonces. El año: 1540.\n\nEl patio interior es plateresco — un estilo que combina el gótico tardío con influencias renacentistas italianas. Las columnas, los medallones, los relieves de la fachada. Todo tiene el sello de un hombre que quería demostrar algo.\n\nPero Escoriaza nunca llegó a habitarlo. Murió poco después de que las obras comenzaran. El palacio pasó a sus herederos, los Esquivel, que le añadieron su apellido.\n\nHoy el palacio pertenece al Ayuntamiento de Vitoria y se usa como sede de eventos y actos oficiales. El patio — que puedes ver desde el exterior si el edificio está abierto — es uno de los más bellos del renacimiento en el País Vasco.\n\nLa última torre está a pocos pasos. Vamos.",
+        "en": "Este palacio guarda una historia de ambición, de dinero y de un hombre que nunca llegó a vivir en él.\n\nFernán López de Escoriaza fue médico personal del rey Enrique VIII de Inglaterra y, más tarde, del rey Carlos I de España. Acumuló una fortuna considerable y decidió construir el palacio más lujoso que Vitoria había visto hasta entonces. El año: 1540.\n\nEl patio interior es plateresco — un estilo que combina el gótico tardío con influencias renacentistas italianas. Las columnas, los medallones, los relieves de la fachada. Todo tiene el sello de un hombre que quería demostrar algo.\n\nPero Escoriaza nunca llegó a habitarlo. Murió poco después de que las obras comenzaran. El palacio pasó a sus herederos, los Esquivel, que le añadieron su apellido.\n\nHoy el palacio pertenece al Ayuntamiento de Vitoria y se usa como sede de eventos y actos oficiales. El patio — que puedes ver desde el exterior si el edificio está abierto — es uno de los más bellos del renacimiento en el País Vasco.\n\nLa última torre está a pocos pasos. Vamos.",
+        "fr": "Este palacio guarda una historia de ambición, de dinero y de un hombre que nunca llegó a vivir en él.\n\nFernán López de Escoriaza fue médico personal del rey Enrique VIII de Inglaterra y, más tarde, del rey Carlos I de España. Acumuló una fortuna considerable y decidió construir el palacio más lujoso que Vitoria había visto hasta entonces. El año: 1540.\n\nEl patio interior es plateresco — un estilo que combina el gótico tardío con influencias renacentistas italianas. Las columnas, los medallones, los relieves de la fachada. Todo tiene el sello de un hombre que quería demostrar algo.\n\nPero Escoriaza nunca llegó a habitarlo. Murió poco después de que las obras comenzaran. El palacio pasó a sus herederos, los Esquivel, que le añadieron su apellido.\n\nHoy el palacio pertenece al Ayuntamiento de Vitoria y se usa como sede de eventos y actos oficiales. El patio — que puedes ver desde el exterior si el edificio está abierto — es uno de los más bellos del renacimiento en el País Vasco.\n\nLa última torre está a pocos pasos. Vamos."
+      },
+      "lat": 42.8494936,
+      "lon": -2.6731449,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 12 — PALACIO DE ESCORIAZA-ESQUIVEL.mp3",
+        "en": "audio/english/12_placeholder.mp3",
+        "fr": "audio/francais/12_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 13,
+      "name": {
+        "es": "Iglesia San Pedro · Torre 4 de 4",
+        "en": "Iglesia San Pedro · Torre 4 de 4",
+        "fr": "Iglesia San Pedro · Torre 4 de 4"
+      },
+      "description": {
+        "es": "Has llegado a la cuarta y última torre de la almendra medieval.\n\nLa Iglesia de San Pedro es Monumento Histórico-Artístico Nacional, y muchos expertos la consideran el templo gótico más bello del norte de España. Su portada principal es excepcional: los doce apóstoles tallados en piedra, uno a uno, con sus atributos y sus nombres. Un trabajo de siglos.\n\nPero lo más impresionante de San Pedro no está dentro: está en el exterior. La iglesia fue construida apoyada directamente sobre la muralla medieval original de Vitoria. La muralla del siglo once. Si rodeas el edificio por la parte trasera, puedes ver cómo el ábside — la parte posterior de la iglesia — emerge directamente de la piedra de la muralla. Edificio y defensa, fundidos en uno.\n\nDurante siglos, San Pedro fue la iglesia del barrio más humilde del casco medieval. No tenía la riqueza de Santa María ni la antigüedad de San Miguel. Pero su arquitectura la superó a todas.\n\nCon esto, has completado la ruta de las cuatro torres. Cuatro iglesias góticas, cuatro siglos de historia, cuatro maneras diferentes de tocar el cielo desde la misma colina.",
+        "en": "Has llegado a la cuarta y última torre de la almendra medieval.\n\nLa Iglesia de San Pedro es Monumento Histórico-Artístico Nacional, y muchos expertos la consideran el templo gótico más bello del norte de España. Su portada principal es excepcional: los doce apóstoles tallados en piedra, uno a uno, con sus atributos y sus nombres. Un trabajo de siglos.\n\nPero lo más impresionante de San Pedro no está dentro: está en el exterior. La iglesia fue construida apoyada directamente sobre la muralla medieval original de Vitoria. La muralla del siglo once. Si rodeas el edificio por la parte trasera, puedes ver cómo el ábside — la parte posterior de la iglesia — emerge directamente de la piedra de la muralla. Edificio y defensa, fundidos en uno.\n\nDurante siglos, San Pedro fue la iglesia del barrio más humilde del casco medieval. No tenía la riqueza de Santa María ni la antigüedad de San Miguel. Pero su arquitectura la superó a todas.\n\nCon esto, has completado la ruta de las cuatro torres. Cuatro iglesias góticas, cuatro siglos de historia, cuatro maneras diferentes de tocar el cielo desde la misma colina.",
+        "fr": "Has llegado a la cuarta y última torre de la almendra medieval.\n\nLa Iglesia de San Pedro es Monumento Histórico-Artístico Nacional, y muchos expertos la consideran el templo gótico más bello del norte de España. Su portada principal es excepcional: los doce apóstoles tallados en piedra, uno a uno, con sus atributos y sus nombres. Un trabajo de siglos.\n\nPero lo más impresionante de San Pedro no está dentro: está en el exterior. La iglesia fue construida apoyada directamente sobre la muralla medieval original de Vitoria. La muralla del siglo once. Si rodeas el edificio por la parte trasera, puedes ver cómo el ábside — la parte posterior de la iglesia — emerge directamente de la piedra de la muralla. Edificio y defensa, fundidos en uno.\n\nDurante siglos, San Pedro fue la iglesia del barrio más humilde del casco medieval. No tenía la riqueza de Santa María ni la antigüedad de San Miguel. Pero su arquitectura la superó a todas.\n\nCon esto, has completado la ruta de las cuatro torres. Cuatro iglesias góticas, cuatro siglos de historia, cuatro maneras diferentes de tocar el cielo desde la misma colina."
+      },
+      "lat": 42.8481387,
+      "lon": -2.6748376,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 13 — IGLESIA DE SAN PEDRO APÓSTOL (TORRE 4 DE 4).mp3",
+        "en": "audio/english/13_placeholder.mp3",
+        "fr": "audio/francais/13_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 14,
+      "name": {
+        "es": "Casa del Cordón",
+        "en": "Casa del Cordón",
+        "fr": "Casa del Cordón"
+      },
+      "description": {
+        "es": "Esta casa guarda uno de los secretos más desconocidos del casco medieval de Vitoria.\n\nEl nombre viene del cordón franciscano que decora su fachada: un detalle que se usaba en los edificios medievales para indicar que sus propietarios tenían vínculos con la orden franciscana o, en algunos casos, que albergaban comunidades judías bajo su protección.\n\nPorque aquí vivió, durante generaciones, una de las familias judías más influyentes de Vitoria. La judería medieval de la ciudad se concentraba en esta zona del casco histórico, cerca de la muralla, en el barrio que entonces se llamaba la Judería. En 1492, el decreto de los Reyes Católicos expulsó a los judíos de España. Los que vivían aquí tuvieron que elegir: convertirse o marcharse.\n\nEl interior de la Casa del Cordón tiene una bóveda estrellada policromada de una belleza extraordinaria. Uno de esos espacios que solo ves si sabes que está ahí.\n\nLa entrada es gratuita. Y la historia que guarda, no tiene precio.",
+        "en": "Esta casa guarda uno de los secretos más desconocidos del casco medieval de Vitoria.\n\nEl nombre viene del cordón franciscano que decora su fachada: un detalle que se usaba en los edificios medievales para indicar que sus propietarios tenían vínculos con la orden franciscana o, en algunos casos, que albergaban comunidades judías bajo su protección.\n\nPorque aquí vivió, durante generaciones, una de las familias judías más influyentes de Vitoria. La judería medieval de la ciudad se concentraba en esta zona del casco histórico, cerca de la muralla, en el barrio que entonces se llamaba la Judería. En 1492, el decreto de los Reyes Católicos expulsó a los judíos de España. Los que vivían aquí tuvieron que elegir: convertirse o marcharse.\n\nEl interior de la Casa del Cordón tiene una bóveda estrellada policromada de una belleza extraordinaria. Uno de esos espacios que solo ves si sabes que está ahí.\n\nLa entrada es gratuita. Y la historia que guarda, no tiene precio.",
+        "fr": "Esta casa guarda uno de los secretos más desconocidos del casco medieval de Vitoria.\n\nEl nombre viene del cordón franciscano que decora su fachada: un detalle que se usaba en los edificios medievales para indicar que sus propietarios tenían vínculos con la orden franciscana o, en algunos casos, que albergaban comunidades judías bajo su protección.\n\nPorque aquí vivió, durante generaciones, una de las familias judías más influyentes de Vitoria. La judería medieval de la ciudad se concentraba en esta zona del casco histórico, cerca de la muralla, en el barrio que entonces se llamaba la Judería. En 1492, el decreto de los Reyes Católicos expulsó a los judíos de España. Los que vivían aquí tuvieron que elegir: convertirse o marcharse.\n\nEl interior de la Casa del Cordón tiene una bóveda estrellada policromada de una belleza extraordinaria. Uno de esos espacios que solo ves si sabes que está ahí.\n\nLa entrada es gratuita. Y la historia que guarda, no tiene precio."
+      },
+      "lat": 42.8481917,
+      "lon": -2.6705769,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 14 — CASA DEL CORDÓN.mp3",
+        "en": "audio/english/14_placeholder.mp3",
+        "fr": "audio/francais/14_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 15,
+      "name": {
+        "es": "Murales del Casco Medieval",
+        "en": "Murales del Casco Medieval",
+        "fr": "Murales del Casco Medieval"
+      },
+      "description": {
+        "es": "Vitoria-Gasteiz tiene una de las colecciones de arte urbano más importantes de España. Y casi nadie lo sabe.\n\nEl Itinerario Muralístico de Vitoria-Gasteiz — el IMVG — nació en 1994 y hoy cuenta con más de cuarenta obras en las paredes del casco medieval y los barrios de la ciudad. No son grafitis: son murales de gran formato, pintados por artistas de reconocimiento internacional, en colaboración con los vecinos de cada barrio.\n\nLo que hace especial a estos murales es su proceso de creación: antes de pintar, el artista se reúne con los vecinos del barrio. Escucha sus historias, sus memorias, sus preocupaciones. Y el mural resultante refleja todo eso. Cada obra es un retrato comunitario.\n\nEl más famoso es el que acabas de ver, el Triunfo de Vitoria. Pero hay décenas más, escondidos en callejones, en patios interiores, en fachadas que parecen grises hasta que doblas una esquina.\n\nSi tienes tiempo, dedica veinte minutos más a perderte por el casco buscándolos. Cada esquina puede ser una sorpresa.",
+        "en": "Vitoria-Gasteiz tiene una de las colecciones de arte urbano más importantes de España. Y casi nadie lo sabe.\n\nEl Itinerario Muralístico de Vitoria-Gasteiz — el IMVG — nació en 1994 y hoy cuenta con más de cuarenta obras en las paredes del casco medieval y los barrios de la ciudad. No son grafitis: son murales de gran formato, pintados por artistas de reconocimiento internacional, en colaboración con los vecinos de cada barrio.\n\nLo que hace especial a estos murales es su proceso de creación: antes de pintar, el artista se reúne con los vecinos del barrio. Escucha sus historias, sus memorias, sus preocupaciones. Y el mural resultante refleja todo eso. Cada obra es un retrato comunitario.\n\nEl más famoso es el que acabas de ver, el Triunfo de Vitoria. Pero hay décenas más, escondidos en callejones, en patios interiores, en fachadas que parecen grises hasta que doblas una esquina.\n\nSi tienes tiempo, dedica veinte minutos más a perderte por el casco buscándolos. Cada esquina puede ser una sorpresa.",
+        "fr": "Vitoria-Gasteiz tiene una de las colecciones de arte urbano más importantes de España. Y casi nadie lo sabe.\n\nEl Itinerario Muralístico de Vitoria-Gasteiz — el IMVG — nació en 1994 y hoy cuenta con más de cuarenta obras en las paredes del casco medieval y los barrios de la ciudad. No son grafitis: son murales de gran formato, pintados por artistas de reconocimiento internacional, en colaboración con los vecinos de cada barrio.\n\nLo que hace especial a estos murales es su proceso de creación: antes de pintar, el artista se reúne con los vecinos del barrio. Escucha sus historias, sus memorias, sus preocupaciones. Y el mural resultante refleja todo eso. Cada obra es un retrato comunitario.\n\nEl más famoso es el que acabas de ver, el Triunfo de Vitoria. Pero hay décenas más, escondidos en callejones, en patios interiores, en fachadas que parecen grises hasta que doblas una esquina.\n\nSi tienes tiempo, dedica veinte minutos más a perderte por el casco buscándolos. Cada esquina puede ser una sorpresa."
+      },
+      "lat": 42.8485,
+      "lon": -2.6718,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 15 — MURALES DEL CASCO MEDIEVAL.mp3",
+        "en": "audio/english/15_placeholder.mp3",
+        "fr": "audio/francais/15_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 16,
+      "name": {
+        "es": "Calle Correría y Cuchillería",
+        "en": "Calle Correría y Cuchillería",
+        "fr": "Calle Correría y Cuchillería"
+      },
+      "description": {
+        "es": "Estás en las dos calles más antiguas de Vitoria-Gasteiz.\n\nCorrería y Cuchillería siguen exactamente el mismo trazado que tenían en el siglo doce. No han cambiado de lugar ni un metro. Lo que ha cambiado es lo que ocurre en ellas.\n\nCorrería viene de \"correos\" o \"correeros\" — los que trabajaban el cuero para fabricar correas, cinturones y arreos para caballos. Era uno de los oficios más importantes de la ciudad medieval, que era también un nudo de caminos comerciales.\n\nCuchillería, como su nombre indica, era el barrio de los cuchilleros. Los artesanos que fabricaban cuchillos, tijeras y todo tipo de herramientas cortantes. Vitoria tenía fama por la calidad de sus aceros en la Edad Media.\n\nHoy, las dos calles son el corazón de la vida nocturna del casco viejo. Las tascas, los bares de pintxos, los restaurantes. La gente sigue reuniéndose aquí, en las mismas calles, por las mismas razones de siempre: comer, beber y estar con otros.\n\nOcho siglos de tradición en cada mesa.",
+        "en": "Estás en las dos calles más antiguas de Vitoria-Gasteiz.\n\nCorrería y Cuchillería siguen exactamente el mismo trazado que tenían en el siglo doce. No han cambiado de lugar ni un metro. Lo que ha cambiado es lo que ocurre en ellas.\n\nCorrería viene de \"correos\" o \"correeros\" — los que trabajaban el cuero para fabricar correas, cinturones y arreos para caballos. Era uno de los oficios más importantes de la ciudad medieval, que era también un nudo de caminos comerciales.\n\nCuchillería, como su nombre indica, era el barrio de los cuchilleros. Los artesanos que fabricaban cuchillos, tijeras y todo tipo de herramientas cortantes. Vitoria tenía fama por la calidad de sus aceros en la Edad Media.\n\nHoy, las dos calles son el corazón de la vida nocturna del casco viejo. Las tascas, los bares de pintxos, los restaurantes. La gente sigue reuniéndose aquí, en las mismas calles, por las mismas razones de siempre: comer, beber y estar con otros.\n\nOcho siglos de tradición en cada mesa.",
+        "fr": "Estás en las dos calles más antiguas de Vitoria-Gasteiz.\n\nCorrería y Cuchillería siguen exactamente el mismo trazado que tenían en el siglo doce. No han cambiado de lugar ni un metro. Lo que ha cambiado es lo que ocurre en ellas.\n\nCorrería viene de \"correos\" o \"correeros\" — los que trabajaban el cuero para fabricar correas, cinturones y arreos para caballos. Era uno de los oficios más importantes de la ciudad medieval, que era también un nudo de caminos comerciales.\n\nCuchillería, como su nombre indica, era el barrio de los cuchilleros. Los artesanos que fabricaban cuchillos, tijeras y todo tipo de herramientas cortantes. Vitoria tenía fama por la calidad de sus aceros en la Edad Media.\n\nHoy, las dos calles son el corazón de la vida nocturna del casco viejo. Las tascas, los bares de pintxos, los restaurantes. La gente sigue reuniéndose aquí, en las mismas calles, por las mismas razones de siempre: comer, beber y estar con otros.\n\nOcho siglos de tradición en cada mesa."
+      },
+      "lat": 42.849386,
+      "lon": -2.674636,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 16 — CALLE CORRERÍA Y CUCHILLERÍA.mp3",
+        "en": "audio/english/16_placeholder.mp3",
+        "fr": "audio/francais/16_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    },
+    {
+      "id": 17,
+      "name": {
+        "es": "Museo Artium",
+        "en": "Museo Artium",
+        "fr": "Museo Artium"
+      },
+      "description": {
+        "es": "Terminamos donde la historia de Vitoria se encuentra con su presente.\n\nEl Museo Artium es el museo de arte contemporáneo vasco por excelencia. Inaugurado en 2002, tiene una colección de más de dos mil ochocientas obras que cuentan la historia del arte vasco desde los años cincuenta hasta hoy.\n\nPero antes de entrar, detente un momento en el exterior. En la plaza que rodea el museo hay esculturas de tres de los artistas más importantes del siglo veinte en el País Vasco: Eduardo Chillida, Jorge Oteiza y Richard Serra. Tres maneras completamente distintas de entender el espacio, el volumen y la forma.\n\nChillida y Oteiza fueron rivales y amigos durante décadas. Los dos se preguntaron lo mismo: ¿qué es el espacio vacío? ¿Puede una escultura definirse por lo que no tiene, más que por lo que tiene? Sus respuestas fueron diferentes. Las dos están aquí, al aire libre, esperando que tú les des la tuya.\n\nLa entrada al museo es gratuita los domingos y las tardes de entre semana.\n\nHas recorrido dos mil años de historia en dos horas. Vitoria-Gasteiz lleva siglos guardando todo esto. Hoy, por fin, lo has encontrado.\n\nGracias por caminar con nosotros.",
+        "en": "Terminamos donde la historia de Vitoria se encuentra con su presente.\n\nEl Museo Artium es el museo de arte contemporáneo vasco por excelencia. Inaugurado en 2002, tiene una colección de más de dos mil ochocientas obras que cuentan la historia del arte vasco desde los años cincuenta hasta hoy.\n\nPero antes de entrar, detente un momento en el exterior. En la plaza que rodea el museo hay esculturas de tres de los artistas más importantes del siglo veinte en el País Vasco: Eduardo Chillida, Jorge Oteiza y Richard Serra. Tres maneras completamente distintas de entender el espacio, el volumen y la forma.\n\nChillida y Oteiza fueron rivales y amigos durante décadas. Los dos se preguntaron lo mismo: ¿qué es el espacio vacío? ¿Puede una escultura definirse por lo que no tiene, más que por lo que tiene? Sus respuestas fueron diferentes. Las dos están aquí, al aire libre, esperando que tú les des la tuya.\n\nLa entrada al museo es gratuita los domingos y las tardes de entre semana.\n\nHas recorrido dos mil años de historia en dos horas. Vitoria-Gasteiz lleva siglos guardando todo esto. Hoy, por fin, lo has encontrado.\n\nGracias por caminar con nosotros.",
+        "fr": "Terminamos donde la historia de Vitoria se encuentra con su presente.\n\nEl Museo Artium es el museo de arte contemporáneo vasco por excelencia. Inaugurado en 2002, tiene una colección de más de dos mil ochocientas obras que cuentan la historia del arte vasco desde los años cincuenta hasta hoy.\n\nPero antes de entrar, detente un momento en el exterior. En la plaza que rodea el museo hay esculturas de tres de los artistas más importantes del siglo veinte en el País Vasco: Eduardo Chillida, Jorge Oteiza y Richard Serra. Tres maneras completamente distintas de entender el espacio, el volumen y la forma.\n\nChillida y Oteiza fueron rivales y amigos durante décadas. Los dos se preguntaron lo mismo: ¿qué es el espacio vacío? ¿Puede una escultura definirse por lo que no tiene, más que por lo que tiene? Sus respuestas fueron diferentes. Las dos están aquí, al aire libre, esperando que tú les des la tuya.\n\nLa entrada al museo es gratuita los domingos y las tardes de entre semana.\n\nHas recorrido dos mil años de historia en dos horas. Vitoria-Gasteiz lleva siglos guardando todo esto. Hoy, por fin, lo has encontrado.\n\nGracias por caminar con nosotros."
+      },
+      "lat": 42.8493075,
+      "lon": -2.6679477,
+      "radius": 12,
+      "audio": {
+        "es": "audio/español/PARADA 17 — MUSEO ARTIUM.mp3",
+        "en": "audio/english/17_placeholder.mp3",
+        "fr": "audio/francais/17_placeholder.mp3"
+      },
+      "image": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&q=80",
+      "play_on_start": false,
+      "auto_next": false
+    }
+  ]
+}

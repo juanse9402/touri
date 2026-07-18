@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#4A7C59">
+  <meta name="description" content="Touri — Mapa del recorrido con todas las paradas.">
+  <title>Touri — Mapa</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <style>
+    #map { width: 100%; height: 100%; }
+    .leaflet-container { background: #16140F !important; }
+  </style>
+</head>
+<body>
+
+  <div class="map-screen" id="mapScreen">
+    <!-- Header -->
+    <div class="map-header">
+      <span class="map-header-title" data-i18n="map.title">Recorrido completo</span>
+      <button class="map-close" onclick="closeMap()" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Map container -->
+    <div class="map-container" id="mapContainer">
+      <div id="map"></div>
+    </div>
+
+    <!-- Bottom sheet -->
+    <div class="map-sheet">
+      <div class="map-stop-current">
+        <div class="map-stop-thumb" id="mapThumb"></div>
+        <div class="map-stop-detail">
+          <div class="map-stop-chapter" id="mapChapter">Capítulo 01 · Ahora</div>
+          <div class="map-stop-name" id="mapStopName">Bienvenida — Virgen Blanca</div>
+          <div class="map-stop-desc" id="mapStopDesc">Plaza central · Casco Histórico</div>
+        </div>
+      </div>
+      <div class="map-stats-row">
+        <div class="map-stat">
+          <div class="map-stat-value" id="mapStatsStops">1/30</div>
+          <div class="map-stat-label" data-i18n="map.stops">Paradas</div>
+        </div>
+        <div class="map-stat">
+          <div class="map-stat-value" id="mapStatsNext">--</div>
+          <div class="map-stat-label" data-i18n="map.next_stop">Próxima</div>
+        </div>
+        <div class="map-stat">
+          <div class="map-stat-value" id="mapStatsRemaining">--</div>
+          <div class="map-stat-label" data-i18n="map.remaining">Restante</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="i18n.js"></script>
+  <script src="tour-data.js"></script>
+  <script>
+    let map = null;
+    let tourId = null;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      tourId = params.get('id') || 'vitoria-casco-medieval';
+
+      const tour = await TourData.loadTour(tourId);
+      if (!tour) return;
+
+      TourData.restoreState();
+      const stops = TourData.getStops();
+      const state = TourData.getState();
+      const currentIndex = state.currentStopIndex;
+      const currentStop = stops[currentIndex];
+      const lang = getLang();
+
+      // Initialize Leaflet map
+      map = L.map('map', {
+        center: [currentStop.lat, currentStop.lon],
+        zoom: 16,
+        zoomControl: true,
+        attributionControl: false,
+      });
+
+      // CartoDB Dark Matter tiles
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        subdomains: 'abcd',
+        maxZoom: 19,
+      }).addTo(map);
+
+      // ── Draw route polylines ──
+      // Completed route (solid green)
+      const completedCoords = [];
+      const pendingCoords = [];
+      let passedCurrent = false;
+
+      stops.forEach((stop, i) => {
+        const coord = [stop.lat, stop.lon];
+        if (i <= currentIndex) {
+          completedCoords.push(coord);
+        }
+        if (i >= currentIndex) {
+          pendingCoords.push(coord);
+        }
+      });
+
+      // Completed polyline
+      if (completedCoords.length > 1) {
+        L.polyline(completedCoords, {
+          color: '#4A7C59',
+          weight: 4,
+          opacity: 0.9,
+          lineCap: 'round',
+          lineJoin: 'round',
+        }).addTo(map);
+      }
+
+      // Pending polyline
+      if (pendingCoords.length > 1) {
+        L.polyline(pendingCoords, {
+          color: '#3D3B33',
+          weight: 4,
+          opacity: 0.8,
+          dashArray: '8 5',
+          lineCap: 'round',
+          lineJoin: 'round',
+        }).addTo(map);
+      }
+
+      // ── Stop markers ──
+      stops.forEach((stop, i) => {
+        let markerHtml = '';
+        let markerSize = [14, 14];
+        let markerAnchor = [7, 7];
+
+        if (i === currentIndex) {
+          // Active marker — pulsing
+          markerHtml = '<div class="stop-marker-active"></div>';
+          markerSize = [20, 20];
+          markerAnchor = [10, 10];
+        } else if (state.visitedStops.has(stop.id) || i < currentIndex) {
+          // Completed marker
+          markerHtml = '<div class="stop-marker-done"></div>';
+        } else {
+          // Pending marker
+          markerHtml = '<div class="stop-marker-pending"></div>';
+          markerSize = [12, 12];
+          markerAnchor = [6, 6];
+        }
+
+        const icon = L.divIcon({
+          className: '',
+          html: markerHtml,
+          iconSize: markerSize,
+          iconAnchor: markerAnchor,
+        });
+
+        const marker = L.marker([stop.lat, stop.lon], { icon }).addTo(map);
+
+        // Tooltip for current stop
+        if (i === currentIndex) {
+          marker.bindTooltip(TourData.getStopName(stop, lang), {
+            permanent: true,
+            direction: 'top',
+            offset: [0, -14],
+            className: 'stop-tooltip',
+          });
+        }
+      });
+
+      // ── Update bottom sheet ──
+      // Current stop info
+      if (currentStop.image) {
+        document.getElementById('mapThumb').style.backgroundImage = `url('${currentStop.image}')`;
+      }
+      document.getElementById('mapChapter').textContent =
+        `${t('player.chapter')} ${String(currentStop.id).padStart(2, '0')} · ${t('map.now')}`;
+      document.getElementById('mapStopName').textContent =
+        TourData.getStopName(currentStop, lang);
+
+      // Stats
+      const visitedCount = Math.max(currentIndex + 1, state.visitedStops.size);
+      document.getElementById('mapStatsStops').textContent = `${visitedCount}/${stops.length}`;
+
+      // Distance to next
+      if (currentIndex < stops.length - 1) {
+        const nextStop = stops[currentIndex + 1];
+        const dist = TourData.distanceBetweenStops(currentStop, nextStop);
+        document.getElementById('mapStatsNext').textContent =
+          dist >= 1000 ? (dist / 1000).toFixed(1) + 'km' : dist + 'm';
+      } else {
+        document.getElementById('mapStatsNext').textContent = '—';
+      }
+
+      // Remaining time
+      const remaining = TourData.getRemainingMinutes();
+      document.getElementById('mapStatsRemaining').textContent = remaining + "'";
+
+      // Fit map to show all markers
+      const bounds = L.latLngBounds(stops.map(s => [s.lat, s.lon]));
+      map.fitBounds(bounds, { padding: [30, 30] });
+
+      // Style the tooltip
+      addTooltipStyles();
+    });
+
+    function closeMap() {
+      window.location.href = `tour-player.html?id=${tourId}`;
+    }
+
+    function addTooltipStyles() {
+      const style = document.createElement('style');
+      style.textContent = `
+        .stop-tooltip {
+          background: #4A7C59 !important;
+          border: none !important;
+          color: white !important;
+          font-family: 'Outfit', sans-serif !important;
+          font-size: 11px !important;
+          font-weight: 600 !important;
+          padding: 4px 10px !important;
+          border-radius: 6px !important;
+          box-shadow: 0 4px 12px rgba(0,0,0,.3) !important;
+        }
+        .stop-tooltip::before {
+          border-top-color: #4A7C59 !important;
+        }
+        .leaflet-control-zoom {
+          border: none !important;
+          margin: 12px !important;
+        }
+        .leaflet-control-zoom a {
+          background: rgba(28,27,23,.85) !important;
+          color: #F0EDE4 !important;
+          border: 1px solid #3D3B33 !important;
+          backdrop-filter: blur(8px);
+          width: 36px !important;
+          height: 36px !important;
+          line-height: 36px !important;
+          font-size: 18px !important;
+        }
+        .leaflet-control-zoom a:first-child {
+          border-radius: 10px 10px 0 0 !important;
+        }
+        .leaflet-control-zoom a:last-child {
+          border-radius: 0 0 10px 10px !important;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#4A7C59">
+  <meta name="description" content="Touri — Recorrido en curso con audio guiado por GPS.">
+  <title>Touri — En Ruta</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="player-screen" id="playerScreen">
+    <!-- Hero photo -->
+    <div class="hero-photo">
+      <div class="hero-img" id="heroImg" style="background: linear-gradient(180deg,rgba(15,14,11,.3),rgba(15,14,11,.7)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80') center/cover;"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-topbar">
+        <button class="hero-back" onclick="exitTour()" aria-label="Salir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="hero-lang" id="langBadge" onclick="openLangSwitcher()">ES · Parada 1/30</button>
+      </div>
+      <div class="hero-stop-info">
+        <div class="hero-chapter" id="chapterLabel">Capítulo 01</div>
+        <div class="hero-stop-name" id="stopName">Bienvenida — Virgen Blanca</div>
+      </div>
+    </div>
+
+    <!-- Content panel -->
+    <div class="content-panel">
+      <!-- Audio progress -->
+      <div class="progress-wrap">
+        <div class="progress-header">
+          <span class="progress-label" data-i18n="player.audio_playing">Audio en curso</span>
+          <span class="progress-time" id="progressTime">0:00 / 0:00</span>
+        </div>
+        <div class="progress-track" id="progressTrack" onclick="seekAudio(event)">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="audio-controls">
+        <button class="ctrl-secondary" id="btnPrev" onclick="prevStop()" aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 17l-5-5 5-5v10zm7 0l-5-5 5-5v10z"/></svg>
+        </button>
+        <button class="ctrl-play" id="btnPlayPause" onclick="togglePlay()" aria-label="Reproducir/Pausar">
+          <svg viewBox="0 0 24 24" fill="currentColor" id="playPauseIcon"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <button class="ctrl-secondary" id="btnNext" onclick="nextStop()" aria-label="Siguiente">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 7l5 5-5 5V7zM6 7l5 5-5 5V7z"/></svg>
+        </button>
+      </div>
+
+      <!-- Description -->
+      <div class="desc-block">
+        <div class="desc-label" data-i18n="player.about">Sobre este lugar</div>
+        <p class="desc-text" id="stopDesc">La Plaza de la Virgen Blanca es el corazón de Vitoria-Gasteiz...</p>
+      </div>
+
+      <!-- Next stop card -->
+      <div class="next-stop-card" id="nextStopCard" onclick="goToNextStop()">
+        <div class="next-stop-thumb" id="nextStopThumb"></div>
+        <div class="next-stop-info">
+          <div class="next-stop-label" id="nextStopLabel">A continuación · 80 m</div>
+          <div class="next-stop-name" id="nextStopName">Los Arquillos</div>
+          <div class="next-stop-dist" id="nextStopDist">▶ ~1 min caminando</div>
+        </div>
+        <div class="next-stop-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- Map button -->
+      <button class="btn-outline" onclick="openMap()" style="margin-bottom: 8px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6v16l7-4 8 4 7-4V2l-7 4-8-4-7 4zM8 2v16M16 6v16"/></svg>
+        <span data-i18n="player.map">Ver mapa del recorrido</span>
+      </button>
+
+      <!-- Progress dots -->
+      <div class="tour-dots" id="tourDots">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Language Switcher Overlay -->
+  <div class="lang-switcher-overlay" id="langOverlay" onclick="closeLangSwitcher(event)">
+    <div class="lang-switcher" onclick="event.stopPropagation()">
+      <div class="lang-switcher-title" data-i18n="lang.title">Idioma del tour</div>
+      <div class="lang-option" data-lang="es" onclick="switchLang('es')">
+        <span class="lang-option-flag">🇪🇸</span>
+        <span class="lang-option-name">Español</span>
+        <span class="lang-option-native">ES</span>
+      </div>
+      <div class="lang-option" data-lang="en" onclick="switchLang('en')">
+        <span class="lang-option-flag">🇬🇧</span>
+        <span class="lang-option-name">English</span>
+        <span class="lang-option-native">EN</span>
+      </div>
+      <div class="lang-option" data-lang="fr" onclick="switchLang('fr')">
+        <span class="lang-option-flag">🇫🇷</span>
+        <span class="lang-option-name">Français</span>
+        <span class="lang-option-native">FR</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="i18n.js"></script>
+  <script src="tour-data.js"></script>
+  <script src="gps.js"></script>
+  <script src="audio.js"></script>
+  <script>
+    let tourId = null;
+    let tour = null;
+    let stops = [];
+    let currentIndex = 0;
+    let isPlayingAudio = false;
+
+    // ── Init ──
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      tourId = params.get('id') || 'vitoria-casco-medieval';
+
+      tour = await TourData.loadTour(tourId);
+      if (!tour) return;
+
+      stops = TourData.getStops();
+      TourData.restoreState();
+      currentIndex = TourData.getState().currentStopIndex;
+
+      // Init audio engine
+      AudioEngine.init();
+      AudioEngine.onTimeUpdate(updateProgress);
+      AudioEngine.onEnded(onAudioEnded);
+      AudioEngine.onError(onAudioError);
+
+      // Load current stop
+      loadStop(currentIndex);
+
+      // Start GPS if not manual mode
+      if (!TourData.isManualMode()) {
+        startGPSTracking();
+      }
+
+      // Play first stop if play_on_start and is first stop
+      const firstStop = stops[0];
+      if (firstStop && firstStop.play_on_start && currentIndex === 0) {
+        TourData.markVisited(firstStop.id);
+        GPS.markTriggered(firstStop.id);
+        setTimeout(() => {
+          AudioEngine.playStop(firstStop, getLang());
+        }, 500);
+      }
+
+      // Try to start ambient
+      if (tour.ambient_music) {
+        AudioEngine.startAmbient(tour.ambient_music);
+      }
+
+      // Resume ambient on any touch (for autoplay policy)
+      document.addEventListener('touchstart', () => {
+        AudioEngine.tryResumeAmbient();
+      }, { once: true });
+
+      updateLangOptions();
+    });
+
+    // ── Load stop UI ──
+    function loadStop(index) {
+      if (index < 0 || index >= stops.length) return;
+
+      currentIndex = index;
+      TourData.setCurrentStop(index);
+      const stop = stops[index];
+      const lang = getLang();
+      const totalStops = stops.length;
+
+      // Hero
+      if (stop.image) {
+        document.getElementById('heroImg').style.background =
+          `linear-gradient(180deg,rgba(15,14,11,.3),rgba(15,14,11,.7)), url('${stop.image}') center/cover`;
+      }
+
+      // Chapter + name
+      document.getElementById('chapterLabel').textContent =
+        `${t('player.chapter')} ${String(stop.id).padStart(2, '0')}`;
+      document.getElementById('stopName').textContent = TourData.getStopName(stop, lang);
+
+      // Lang badge
+      document.getElementById('langBadge').textContent =
+        `${lang.toUpperCase()} · ${t('player.stop_of', { current: stop.id, total: totalStops })}`;
+
+      // Description
+      document.getElementById('stopDesc').textContent = TourData.getStopDescription(stop, lang);
+
+      // Next stop card
+      const nextIndex = index + 1;
+      const nextCard = document.getElementById('nextStopCard');
+      if (nextIndex < stops.length) {
+        const nextStop = stops[nextIndex];
+        const dist = TourData.distanceBetweenStops(stop, nextStop);
+        const walkMin = TourData.walkingTimeMinutes(stop, nextStop);
+        const distStr = dist >= 1000 ? (dist / 1000).toFixed(1) + ' km' : dist + ' m';
+
+        nextCard.style.display = 'flex';
+        document.getElementById('nextStopLabel').textContent =
+          `${t('player.next')} · ${distStr}`;
+        document.getElementById('nextStopName').textContent =
+          TourData.getStopName(nextStop, lang);
+        document.getElementById('nextStopDist').textContent =
+          `▶ ${t('player.next.distance', { n: walkMin })}`;
+
+        if (nextStop.image) {
+          document.getElementById('nextStopThumb').style.backgroundImage = `url('${nextStop.image}')`;
+        }
+      } else {
+        nextCard.style.display = 'none';
+      }
+
+      // Reset progress bar
+      document.getElementById('progressFill').style.width = '0%';
+      document.getElementById('progressTime').textContent = '0:00 / 0:00';
+
+      // Dots
+      renderDots();
+
+      // Precache next 3 audios
+      precacheUpcoming(index);
+    }
+
+    // ── Progress dots ──
+    function renderDots() {
+      const dotsContainer = document.getElementById('tourDots');
+      // Show up to 15 dots around current position for compactness
+      const totalStops = stops.length;
+      let startDot = Math.max(0, currentIndex - 7);
+      let endDot = Math.min(totalStops, startDot + 15);
+      if (endDot - startDot < 15) startDot = Math.max(0, endDot - 15);
+
+      let html = '';
+      for (let i = startDot; i < endDot; i++) {
+        const stop = stops[i];
+        let cls = 'dot-stop';
+        if (i === currentIndex) cls += ' active';
+        else if (TourData.isVisited(stop.id)) cls += ' done';
+        html += `<div class="${cls}"></div>`;
+      }
+      dotsContainer.innerHTML = html;
+    }
+
+    // ── Audio progress ──
+    function updateProgress(data) {
+      document.getElementById('progressFill').style.width = data.percent + '%';
+      document.getElementById('progressTime').textContent =
+        `${AudioEngine.formatTime(data.currentTime)} / ${AudioEngine.formatTime(data.duration)}`;
+    }
+
+    function onAudioEnded(stop) {
+      isPlayingAudio = false;
+      updatePlayPauseIcon();
+
+      // Check if last stop
+      if (currentIndex >= stops.length - 1) {
+        // Tour complete!
+        setTimeout(() => {
+          const elapsed = TourData.getElapsedMinutes();
+          const visited = TourData.getState().visitedStops.size;
+          window.location.href = `tour-end.html?id=${tourId}&stops=${visited}&time=${elapsed}&km=${tour.stats.distance_km}`;
+        }, 2000);
+      }
+    }
+
+    function onAudioError(err) {
+      console.warn('[Player] Audio error:', err);
+      showToast(t('toast.audio_error'));
+      updatePlayPauseIcon();
+    }
+
+    // ── Controls ──
+    function togglePlay() {
+      AudioEngine.togglePlayPause();
+      const state = AudioEngine.getPlayState();
+      isPlayingAudio = state.isPlaying;
+      updatePlayPauseIcon();
+    }
+
+    function updatePlayPauseIcon() {
+      const icon = document.getElementById('playPauseIcon');
+      const state = AudioEngine.getPlayState();
+      if (state.isPlaying) {
+        icon.innerHTML = '<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';
+      } else {
+        icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+      }
+    }
+
+    function prevStop() {
+      if (currentIndex > 0) {
+        loadStop(currentIndex - 1);
+        const stop = stops[currentIndex];
+        TourData.markVisited(stop.id);
+        AudioEngine.playStop(stop, getLang());
+        isPlayingAudio = true;
+        updatePlayPauseIcon();
+      }
+    }
+
+    function nextStop() {
+      if (currentIndex < stops.length - 1) {
+        loadStop(currentIndex + 1);
+        const stop = stops[currentIndex];
+        TourData.markVisited(stop.id);
+        AudioEngine.playStop(stop, getLang());
+        isPlayingAudio = true;
+        updatePlayPauseIcon();
+      }
+    }
+
+    function goToNextStop() {
+      nextStop();
+    }
+
+    function seekAudio(event) {
+      const track = document.getElementById('progressTrack');
+      const rect = track.getBoundingClientRect();
+      const ratio = (event.clientX - rect.left) / rect.width;
+      AudioEngine.seekTo(ratio);
+    }
+
+    // ── GPS Tracking ──
+    function startGPSTracking() {
+      GPS.startTracking(stops, (stop, index) => {
+        // GPS detected we're at this stop
+        TourData.markVisited(stop.id);
+        loadStop(index);
+        AudioEngine.playStop(stop, getLang());
+        isPlayingAudio = true;
+        updatePlayPauseIcon();
+      });
+    }
+
+    // ── Language switching ──
+    function openLangSwitcher() {
+      document.getElementById('langOverlay').classList.add('show');
+    }
+
+    function closeLangSwitcher(event) {
+      if (event.target === document.getElementById('langOverlay')) {
+        document.getElementById('langOverlay').classList.remove('show');
+      }
+    }
+
+    function switchLang(lang) {
+      setLanguage(lang);
+      document.getElementById('langOverlay').classList.remove('show');
+
+      // Reload stop UI in new language
+      loadStop(currentIndex);
+      updateLangOptions();
+
+      // Restart audio in new language from beginning
+      const stop = stops[currentIndex];
+      AudioEngine.playStop(stop, lang);
+      isPlayingAudio = true;
+      updatePlayPauseIcon();
+    }
+
+    function updateLangOptions() {
+      const lang = getLang();
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.lang === lang);
+      });
+    }
+
+    // ── Navigation ──
+    function openMap() {
+      window.location.href = `tour-map.html?id=${tourId}`;
+    }
+
+    function exitTour() {
+      if (confirm(getLang() === 'es' ? '¿Salir del tour?' :
+                  getLang() === 'fr' ? 'Quitter la visite ?' : 'Exit tour?')) {
+        AudioEngine.destroy();
+        GPS.stopTracking();
+        window.location.href = 'tours.html';
+      }
+    }
+
+    // ── Precache upcoming audio ──
+    function precacheUpcoming(fromIndex) {
+      if (!('serviceWorker' in navigator) || !navigator.serviceWorker.controller) return;
+      const lang = getLang();
+      const urls = [];
+      for (let i = fromIndex + 1; i <= Math.min(fromIndex + 3, stops.length - 1); i++) {
+        const audioUrl = TourData.getStopAudio(stops[i], lang);
+        if (audioUrl) urls.push(audioUrl);
+      }
+      if (urls.length > 0) {
+        navigator.serviceWorker.controller.postMessage({
+          type: 'PRECACHE_AUDIO',
+          urls: urls,
+        });
+      }
+    }
+
+    // ── Toast ──
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // ── Keep screen on during playback ──
+    let wakeLock = null;
+    async function requestWakeLock() {
+      try {
+        if ('wakeLock' in navigator) {
+          wakeLock = await navigator.wakeLock.request('screen');
+        }
+      } catch (e) {
+        console.info('[Player] Wake lock not available');
+      }
+    }
+    requestWakeLock();
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') requestWakeLock();
+    });
+  </script>
+</body>
+</html>

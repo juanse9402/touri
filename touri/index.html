@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#C9D9A4">
+  <meta name="description" content="Touri — Audio tours GPS que se activan solos mientras caminas. Descubre ciudades con guías de audio automáticas.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Touri — Audio Tour</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="splash-body-root">
+
+  <div class="app-container">
+    <div class="splash-screen s1" id="splashScreen">
+      
+      <!-- Notch bar & status bar simulator inside the app container on desktop (removed or styled) -->
+      <div class="notch-bar">
+        <div class="notch-pill"></div>
+      </div>
+      <div class="status">
+        <span>9:41</span>
+        <span>●●●</span>
+      </div>
+
+      <div class="s1-body">
+        <!-- Gorgeous animated mockup illustration container -->
+        <div class="s1-illus">
+          <div class="s1-sky"></div>
+          <div class="s1-sun"></div>
+          <div class="s1-cloud s1-cloud-1"></div>
+          <div class="s1-cloud s1-cloud-2"></div>
+          <div class="s1-balloon">
+            <div class="s1-balloon-top"></div>
+            <div class="s1-balloon-basket"></div>
+          </div>
+          <div class="s1-mountain s1-mountain-1"></div>
+          <div class="s1-mountain s1-mountain-2"></div>
+          <div class="s1-mountain-snow-1"></div>
+          <div class="s1-shadow"></div>
+          
+          <!-- Walking character -->
+          <div class="s1-walker">
+            <span class="s1-person-emoji">🧑‍🦱</span>
+            <span class="s1-bag">🎒</span>
+            <div class="s1-boots">
+              <span class="s1-boot s1-boot-l">🥾</span>
+              <span class="s1-boot s1-boot-r">🥾</span>
+            </div>
+          </div>
+          
+          <!-- Flashing stars and map pins -->
+          <div class="s1-sparkle s1-sparkle-1">✨</div>
+          <div class="s1-sparkle s1-sparkle-2">⭐</div>
+          <div class="s1-sparkle s1-sparkle-3">✨</div>
+          <div class="s1-pin s1-pin-1">📍</div>
+          <div class="s1-pin s1-pin-2">📍</div>
+        </div>
+
+        <!-- Logo & Header -->
+        <div class="s1-logo-wrap">
+          <!-- Premium SVG Map/Sun Logo -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:20px;height:20px;color:#3D5A1A;">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <span style="font-weight: 900; color:#3D5A1A; font-size:16px; letter-spacing:-0.5px;">Touri</span>
+          <div class="s1-logo-pill">V1.2</div>
+        </div>
+
+        <div class="s1-explore" data-i18n="explore.greeting">Explora la ciudad</div>
+        <div class="s1-worldwide" data-i18n="splash.worldwide">AL AIRE LIBRE</div>
+        
+        <h1 class="s1-tagline" id="splashHeadline">
+          Descubre la<br><em>ciudad que</em><br>te espera
+        </h1>
+        
+        <div class="s1-sub" data-i18n="splash.sub">
+          30 paradas, 40 minutos. Una guía de audio que se activa sola mientras caminas.
+        </div>
+
+        <!-- Language Selector -->
+        <div class="s1-lang-selector" id="langSelector">
+          <button class="s1-lang-btn active" data-lang="es" onclick="selectLang('es')">ES</button>
+          <button class="s1-lang-btn" data-lang="en" onclick="selectLang('en')">EN</button>
+          <button class="s1-lang-btn" data-lang="fr" onclick="selectLang('fr')">FR</button>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="s1-btn" onclick="startApp()" id="ctaButton">
+          <span data-i18n="splash.cta">Empezar ruta gratis</span>
+          <span class="s1-btn-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+        
+        <div class="s1-signup"><span data-i18n="splash.hint">Sin instalación · Funciona sin datos</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="i18n.js"></script>
+  <script>
+    // ── Init ──
+    document.addEventListener('DOMContentLoaded', () => {
+      // Auto-detect and set language
+      const currentLang = getLang();
+      updateLangPills(currentLang);
+      updateHeadline(currentLang);
+    });
+
+    function selectLang(lang) {
+      setLanguage(lang);
+      updateLangPills(lang);
+      updateHeadline(lang);
+    }
+
+    function updateLangPills(lang) {
+      document.querySelectorAll('.s1-lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    function updateHeadline(lang) {
+      const el = document.getElementById('splashHeadline');
+      const h1 = t('splash.headline.1');
+      const h2 = t('splash.headline.2');
+      const h3 = t('splash.headline.3');
+      el.innerHTML = `${h1}<br><em>${h2}</em><br>${h3}`;
+    }
+
+    function startApp() {
+      window.location.href = 'tours.html';
+    }
+
+    // ── Register Service Worker ──
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(reg => console.log('[SW] Registered:', reg.scope))
+        .catch(err => console.warn('[SW] Registration failed:', err));
+    }
+  </script>
+</body>
+</html>
