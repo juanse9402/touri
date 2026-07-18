@@ -991,7 +991,7 @@ body {
 ═══════════════════════════════════ */
 .s1 {
   background:#C9D9A4;
-  width:190px;
+  width:100%;
 }
 .s1 .notch-bar { background:#B8CA90; }
 .s1 .notch-pill { background:#A8BB80; }
@@ -1253,7 +1253,7 @@ body {
 ═══════════════════════════════════ */
 .s2 {
   background:#FFFFFF;
-  width:220px;
+  width:100%;
 }
 .s2 .notch-bar { background:#fff; }
 .s2 .notch-pill { background:#1A1A2E; }
@@ -1358,7 +1358,7 @@ body {
 ═══════════════════════════════════ */
 .s3 {
   background:#FFFFFF;
-  width:190px;
+  width:100%;
 }
 .s3 .notch-bar { background:#fff; }
 .s3 .notch-pill { background:#1A1A2E; }
