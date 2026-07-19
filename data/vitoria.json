@@ -32,7 +32,7 @@
     "en",
     "fr"
   ],
-  "cover_image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=800&q=80",
+  "cover_image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Plaza_de_la_Virgen_Blanca_01.jpg",
   "ambient_music": "assets/audio/ambient/ambient-loop.mp3",
   "stops": [
     {
@@ -55,7 +55,7 @@
         "en": "audio/01_Florida_EN.mp3",
         "fr": "audio/01_Florida_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_La_Florida_02b.jpg",
       "play_on_start": true,
       "auto_next": false
     },
@@ -79,7 +79,7 @@
         "en": "audio/02_CatNueva_EN.mp3",
         "fr": "audio/02_CatNueva_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Mar%C3%ADa_Inmaculada,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -103,7 +103,7 @@
         "en": "audio/03_VBlanca_EN.mp3",
         "fr": "audio/03_VBlanca_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Plaza_de_la_Virgen_Blanca_01.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -127,7 +127,7 @@
         "en": "audio/04_SanPedro_EN.mp3",
         "fr": "audio/04_SanPedro_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_San_Pedro,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -151,7 +151,7 @@
         "en": "audio/05_Cantones_EN.mp3",
         "fr": "audio/05_Cantones_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Calle_Cuchilleria_01.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -175,7 +175,7 @@
         "en": "audio/06_Murales_EN.mp3",
         "fr": "audio/06_Murales_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2022-10-29-WikiTakes-Vitoria_(1).jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -199,7 +199,7 @@
         "en": "audio/07_Correria_EN.mp3",
         "fr": "audio/07_Correria_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/1924-08-18._Calle_de_la_Correr%C3%ADa_y_catedral_de_Santa_Mar%C3%ADa_(Vitoria),_Salvador_Azpiazu.JPG",
       "play_on_start": false,
       "auto_next": false
     },
@@ -223,7 +223,7 @@
         "en": "audio/08_Portalon_EN.mp3",
         "fr": "audio/08_Portalon_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/El_Portal%C3%B3n,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -247,7 +247,7 @@
         "en": "audio/09_Canos_EN.mp3",
         "fr": "audio/09_Canos_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Ca%C3%B1os_01.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -271,7 +271,7 @@
         "en": "audio/10_CatSantaMaria_EN.mp3",
         "fr": "audio/10_CatSantaMaria_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Santa_Mar%C3%ADa,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -295,7 +295,7 @@
         "en": "audio/11_Escoriaza_EN.mp3",
         "fr": "audio/11_Escoriaza_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Palacio_de_Escoriaza-Esquivel_01.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -319,7 +319,7 @@
         "en": "audio/12_MuralTriunfo_EN.mp3",
         "fr": "audio/12_MuralTriunfo_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_Gasteiz_-_Mural_El_Triunfo_de_Vitoria.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -343,7 +343,7 @@
         "en": "audio/13_Artium_EN.mp3",
         "fr": "audio/13_Artium_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Artium,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -367,7 +367,7 @@
         "en": "audio/14_CasaCordon_EN.mp3",
         "fr": "audio/14_CasaCordon_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Casa_del_Cord%C3%B3n_01.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -391,7 +391,7 @@
         "en": "audio/15_SanVicente_EN.mp3",
         "fr": "audio/15_SanVicente_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_San_Vicente_M%C3%A1rtir,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -415,7 +415,7 @@
         "en": "audio/16_SanMiguel_EN.mp3",
         "fr": "audio/16_SanMiguel_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/St_Michael_Archangel_church_in_Vitoria-Gasteiz_(5).jpg",
       "play_on_start": false,
       "auto_next": false
     },
@@ -439,7 +439,7 @@
         "en": "audio/17_PlazaEspana_EN.mp3",
         "fr": "audio/17_PlazaEspana_FR.mp3"
       },
-      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Plaza_Nueva_01.jpg",
       "play_on_start": false,
       "auto_next": false
     }
