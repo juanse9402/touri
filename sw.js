@@ -3,7 +3,7 @@
    Cache-first for static, progressive for audio
 ═══════════════════════════════════ */
 
-const CACHE_NAME = 'touri-v5';
+const CACHE_NAME = 'touri-v6';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -52,7 +52,7 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== location.origin) return;
 
   // Audio files — cache on demand (network-first)
-  if (url.pathname.includes('/assets/audio/')) {
+  if (url.pathname.includes('/audio/')) {
     event.respondWith(
       fetch(event.request)
         .then(response => {
