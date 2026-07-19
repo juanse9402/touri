@@ -183,10 +183,18 @@
       const totalStops = stops.length;
 
       // Hero
-      if (stop.image) {
-        document.getElementById('heroImg').style.background =
-          `linear-gradient(180deg,rgba(15,14,11,.3),rgba(15,14,11,.7)), url('${stop.image}') center/cover`;
-      }
+      const heroImg = document.getElementById('heroImg');
+      heroImg.style.background = '';
+      heroImg.className = 'hero-img fallback-img';
+      heroImg.innerHTML = `<div class="fallback-num">${stop.id}</div>`;
+
+      TourData.fetchWikiImage(stop.wiki_title).then(imgUrl => {
+        if (imgUrl) {
+          heroImg.className = 'hero-img';
+          heroImg.innerHTML = '';
+          heroImg.style.background = `linear-gradient(180deg,rgba(15,14,11,.3),rgba(15,14,11,.7)), url('${imgUrl}') center/cover`;
+        }
+      });
 
       // Chapter + name
       document.getElementById('chapterLabel').textContent =
@@ -217,9 +225,18 @@
         document.getElementById('nextStopDist').textContent =
           `▶ ${t('player.next.distance', { n: walkMin })}`;
 
-        if (nextStop.image) {
-          document.getElementById('nextStopThumb').style.backgroundImage = `url('${nextStop.image}')`;
-        }
+        const nextThumb = document.getElementById('nextStopThumb');
+        nextThumb.style.backgroundImage = 'none';
+        nextThumb.className = 'next-stop-thumb fallback-img';
+        nextThumb.innerHTML = `<div class="fallback-num">${nextStop.id}</div>`;
+
+        TourData.fetchWikiImage(nextStop.wiki_title).then(imgUrl => {
+          if (imgUrl) {
+            nextThumb.className = 'next-stop-thumb';
+            nextThumb.innerHTML = '';
+            nextThumb.style.backgroundImage = `url('${imgUrl}')`;
+          }
+        });
       } else {
         nextCard.style.display = 'none';
       }

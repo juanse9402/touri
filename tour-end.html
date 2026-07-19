@@ -112,24 +112,35 @@
         let html = '';
 
         // Show unique images from visited stops
-        const shownImages = new Set();
         const maxPhotos = 6;
+        const displayStops = stops.slice(0, maxPhotos);
 
-        for (const stop of stops) {
-          if (shownImages.size >= maxPhotos) break;
-          if (stop.image && !shownImages.has(stop.image)) {
-            shownImages.add(stop.image);
-            html += `<div class="end-photo" style="background-image: url('${stop.image}');"></div>`;
-          }
-        }
+        displayStops.forEach(stop => {
+          html += `<div class="end-photo fallback-img" id="end-photo-${stop.id}">
+                     <div class="fallback-num">${stop.id}</div>
+                   </div>`;
+        });
 
         // "More" card
-        const moreCount = Math.max(0, stops.length - shownImages.size);
+        const moreCount = Math.max(0, stops.length - displayStops.length);
         if (moreCount > 0) {
           html += `<div class="end-photo-more">+${moreCount}</div>`;
         }
 
         photosContainer.innerHTML = html;
+
+        displayStops.forEach(stop => {
+          TourData.fetchWikiImage(stop.wiki_title).then(imgUrl => {
+            if (imgUrl) {
+              const div = document.getElementById(`end-photo-${stop.id}`);
+              if (div) {
+                div.className = 'end-photo';
+                div.innerHTML = '';
+                div.style.backgroundImage = `url('${imgUrl}')`;
+              }
+            }
+          });
+        });
       }
 
       // Clear tour state

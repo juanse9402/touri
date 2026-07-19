@@ -57,7 +57,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_La_Florida_02b.jpg",
       "play_on_start": true,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "La_Florida_(park)"
     },
     {
       "id": 2,
@@ -81,7 +82,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Mar%C3%ADa_Inmaculada,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Cathedral_of_María_Inmaculada_of_Vitoria"
     },
     {
       "id": 3,
@@ -105,7 +107,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Plaza_de_la_Virgen_Blanca_01.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Plaza_de_la_Virgen_Blanca"
     },
     {
       "id": 4,
@@ -129,7 +132,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_San_Pedro,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Church_of_San_Pedro_Apóstol,_Vitoria"
     },
     {
       "id": 5,
@@ -153,7 +157,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Calle_Cuchilleria_01.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Vitoria-Gasteiz"
     },
     {
       "id": 6,
@@ -177,7 +182,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2022-10-29-WikiTakes-Vitoria_(1).jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Vitoria-Gasteiz"
     },
     {
       "id": 7,
@@ -201,7 +207,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/1924-08-18._Calle_de_la_Correr%C3%ADa_y_catedral_de_Santa_Mar%C3%ADa_(Vitoria),_Salvador_Azpiazu.JPG",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Vitoria-Gasteiz"
     },
     {
       "id": 8,
@@ -225,7 +232,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/El_Portal%C3%B3n,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "El_Portalo%CC%81n"
     },
     {
       "id": 9,
@@ -249,7 +257,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Ca%C3%B1os_01.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Vitoria-Gasteiz"
     },
     {
       "id": 10,
@@ -273,7 +282,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Santa_Mar%C3%ADa,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Cathedral_of_Santa_María_de_Vitoria"
     },
     {
       "id": 11,
@@ -297,7 +307,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Palacio_de_Escoriaza-Esquivel_01.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Escoriaza-Esquivel_Palace"
     },
     {
       "id": 12,
@@ -321,7 +332,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_Gasteiz_-_Mural_El_Triunfo_de_Vitoria.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Vitoria-Gasteiz"
     },
     {
       "id": 13,
@@ -345,7 +357,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Artium,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Artium_(museum)"
     },
     {
       "id": 14,
@@ -369,7 +382,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Casa_del_Cord%C3%B3n_01.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Casa_del_Cordón,_Vitoria-Gasteiz"
     },
     {
       "id": 15,
@@ -393,7 +407,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_San_Vicente_M%C3%A1rtir,_Vitoria-Gasteiz.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Church_of_San_Vicente_Mártir,_Vitoria-Gasteiz"
     },
     {
       "id": 16,
@@ -417,7 +432,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/St_Michael_Archangel_church_in_Vitoria-Gasteiz_(5).jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Church_of_San_Miguel_Arcángel,_Vitoria-Gasteiz"
     },
     {
       "id": 17,
@@ -441,7 +457,8 @@
       },
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitoria_-_Plaza_Nueva_01.jpg",
       "play_on_start": false,
-      "auto_next": false
+      "auto_next": false,
+      "wiki_title": "Plaza_de_España_(Vitoria)"
     }
   ]
 }

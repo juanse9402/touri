@@ -218,6 +218,27 @@ const TourData = (() => {
     sessionStorage.removeItem('touri_state');
   }
 
+  /**
+   * Fetch image from Wikipedia REST API based on wiki_title.
+   * Returns thumbnail.source or null if failed.
+   */
+  async function fetchWikiImage(wikiTitle) {
+    if (!wikiTitle) return null;
+    try {
+      const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wikiTitle)}`;
+      const resp = await fetch(url);
+      if (!resp.ok) return null;
+      const data = await resp.json();
+      if (data && data.thumbnail && data.thumbnail.source) {
+        return data.thumbnail.source;
+      }
+      return null;
+    } catch (err) {
+      console.warn('[TourData] Failed to fetch wiki image:', err);
+      return null;
+    }
+  }
+
   // Restore on load
   restoreState();
 
@@ -231,6 +252,7 @@ const TourData = (() => {
     getStopName,
     getStopDescription,
     getStopAudio,
+    fetchWikiImage,
     haversineDistance,
     distanceBetweenStops,
     walkingTimeMinutes,

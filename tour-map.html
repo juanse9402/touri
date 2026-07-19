@@ -177,9 +177,18 @@
 
       // ── Update bottom sheet ──
       // Current stop info
-      if (currentStop.image) {
-        document.getElementById('mapThumb').style.backgroundImage = `url('${currentStop.image}')`;
-      }
+      const mapThumb = document.getElementById('mapThumb');
+      mapThumb.style.backgroundImage = 'none';
+      mapThumb.className = 'map-stop-thumb fallback-img';
+      mapThumb.innerHTML = `<div class="fallback-num">${currentStop.id}</div>`;
+
+      TourData.fetchWikiImage(currentStop.wiki_title).then(imgUrl => {
+        if (imgUrl) {
+          mapThumb.className = 'map-stop-thumb';
+          mapThumb.innerHTML = '';
+          mapThumb.style.backgroundImage = `url('${imgUrl}')`;
+        }
+      });
       document.getElementById('mapChapter').textContent =
         `${t('player.chapter')} ${String(currentStop.id).padStart(2, '0')} · ${t('map.now')}`;
       document.getElementById('mapStopName').textContent =
