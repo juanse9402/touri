@@ -106,7 +106,7 @@ const AudioEngine = (() => {
       return;
     }
 
-    guideAudio.src = '/' + audioSrc;
+    guideAudio.src = audioSrc;
     const playPromise = guideAudio.play();
 
     if (playPromise !== undefined) {

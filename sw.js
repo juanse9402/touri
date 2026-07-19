@@ -56,8 +56,10 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request)
         .then(response => {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          if (response.status === 200) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
+          }
           return response;
         })
         .catch(() => caches.match(event.request))
@@ -91,7 +93,7 @@ self.addEventListener('message', (event) => {
         cache.match(url).then(existing => {
           if (!existing) {
             fetch(url).then(resp => {
-              if (resp.ok) cache.put(url, resp);
+              if (resp.status === 200) cache.put(url, resp);
             }).catch(() => {});
           }
         });
