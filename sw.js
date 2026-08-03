@@ -3,20 +3,20 @@
    Cache-first for static, progressive for audio
 ═══════════════════════════════════ */
 
-const CACHE_NAME = 'touri-v7';
+const CACHE_NAME = 'touri-v8';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/tours.html',
   '/tour-detail.html',
   '/tour-player.html',
-  '/tour-map.html',
   '/tour-end.html',
   '/style.css',
   '/i18n.js',
   '/gps.js',
   '/audio.js',
   '/tour-data.js',
+  '/player-logic.js',
+  '/tailwind-config.js',
   '/manifest.json',
   '/data/vitoria.json',
 ];
