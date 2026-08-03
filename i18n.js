@@ -105,7 +105,8 @@ const TRANSLATIONS = {
     "gps_error": "Activa el GPS para continuar",
     "tour_complete": "¡Tour completado!",
     "city_vitoria": "Vitoria",
-    "city_paris": "París"
+    "city_paris": "París",
+    "city_malta": "Malta y el mediterráneo"
   },
   "en": {
     "splash.eyebrow": "Vitoria-Gasteiz · Spain",
@@ -208,7 +209,8 @@ const TRANSLATIONS = {
     "gps_error": "Enable GPS to continue",
     "tour_complete": "Tour complete!",
     "city_vitoria": "Vitoria",
-    "city_paris": "Paris"
+    "city_paris": "Paris",
+    "city_malta": "Malta & the Mediterranean"
   },
   "fr": {
     "splash.eyebrow": "Vitoria-Gasteiz · Espagne",
@@ -311,7 +313,8 @@ const TRANSLATIONS = {
     "gps_error": "Activez le GPS pour continuer",
     "tour_complete": "Tour terminé !",
     "city_vitoria": "Vitoria",
-    "city_paris": "Paris"
+    "city_paris": "Paris",
+    "city_malta": "Malte et la Méditerranée"
   }
 };
 
