@@ -100,7 +100,7 @@
       const maltaDiv = document.createElement('div');
       maltaDiv.className = "relative rounded-[18px] overflow-hidden h-[100px] opacity-55 mt-3 mb-2";
       maltaDiv.innerHTML = `
-        <img src="https://images.unsplash.com/photo-1549429188-724bc27ab5ce?w=780&q=80" class="absolute inset-0 w-full h-full object-cover grayscale-[40%]" alt="" />
+        <img id="malta-img" src="" class="absolute inset-0 w-full h-full object-cover grayscale-[40%]" alt="" />
         <div class="absolute inset-0 bg-touri-dark/55"></div>
         <div class="absolute bottom-2.5 left-3.5">
           <p class="font-display text-base uppercase text-touri-cream m-0">${t('city_malta')}</p>
@@ -108,6 +108,12 @@
         </div>
       `;
       toursContainer.appendChild(maltaDiv);
+      
+      TourData.fetchWikiImage('Valletta').then(url => {
+        if(url) {
+          document.getElementById('malta-img').src = url;
+        }
+      });
       
       applyTranslations();
     });
