@@ -1,295 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#94A35D">
-  <meta name="description" content="Touri — Detalle del tour con información, paradas y estadísticas.">
-  <title>Touri — Detalle del Tour</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Touri — Detalle</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
+  <style>
+    /* Light theme map fixes */
+    #preview-map { background: #E4D6BC; }
+    .leaflet-control-attribution { display: none; }
+  </style>
 </head>
-<body class="detail-body-root">
+<body class="min-h-screen flex items-center justify-center p-6 bg-[#EDEDED]">
+  <div class="w-full max-w-[390px] bg-white rounded-[36px] p-2.5 shadow-2xl">
+    <div class="relative w-full overflow-hidden rounded-[28px]" style="aspect-ratio: 9 / 16; max-height: 720px;">
+      
+      <!-- ============ SCREEN 2: DETALLE DEL TOUR (hero) ============ -->
+      <section id="screen-detail" class="screen active w-full h-full relative">
+        <button onclick="window.location.href='index.html'" class="absolute top-5 left-5 z-10 w-8 h-8 rounded-full bg-touri-cream/20 backdrop-blur-sm flex items-center justify-center text-touri-cream" aria-label="Volver">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <img id="detail-bg" src="" class="absolute inset-0 w-full h-full object-cover" alt="" />
+        <div class="absolute inset-0 bg-gradient-to-t from-touri-dark/95 via-touri-dark/40 to-touri-dark/10"></div>
 
-  <div class="app-container">
-    <div class="detail-screen s3" id="detailScreen">
-      <!-- Notch bar & status bar simulator inside the app container on desktop -->
-      <div class="notch-bar">
-        <div class="notch-pill"></div>
-      </div>
-      <div class="status">
-        <span style="color:#1A1A2E">9:41</span>
-        <span>●●●</span>
-      </div>
-
-      <!-- Hero Photo -->
-      <div class="s3-hero" id="detailHero">
-        <img id="heroImg" src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=300&q=80" alt="Vitoria">
-        <div class="s3-hero-overlay"></div>
-        <div class="s3-topbar">
-          <div class="s3-back" onclick="goBack()" style="cursor:pointer;" aria-label="Volver">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M19 12H5M12 5l-7 7 7 7"/>
-            </svg>
-          </div>
-          <div class="s3-heart" id="saveBtn" onclick="toggleSave()" style="cursor:pointer;" aria-label="Guardar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-            </svg>
+        <div class="absolute inset-x-0 bottom-0 px-5 pb-7 pt-6">
+          <span class="mb-3.5 inline-block rounded-full bg-touri-blue px-3 py-1.5 text-[11px] font-bold tracking-wide text-touri-cream">AL AIRE LIBRE</span>
+          <h1 id="detail-title" class="mb-3 font-display text-[34px] font-black uppercase leading-[1.1] tracking-tight text-touri-cream">
+            Cargando...
+          </h1>
+          <p id="detail-desc" class="mb-5 text-sm leading-relaxed text-touri-cream/85">Cargando detalles...</p>
+          <button onclick="showScreen('screen-map')" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-touri-green py-4 text-[15px] font-bold text-touri-cream active:scale-[0.98] transition-transform">
+            Empezar ruta gratis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="mt-3 flex justify-center gap-3 text-[11px] text-touri-cream/65">
+            <span>Sin instalación</span><span>·</span><span>Funciona sin datos</span>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Panel Info -->
-      <div class="s3-panel">
-        <div class="s3-name-row">
-          <div class="s3-name" id="heroName">Casco Medieval</div>
-          <div class="s3-rating">
-            <span class="s3-rating-star">★</span>
-            <span id="statRating">4.9</span>
-          </div>
-        </div>
-        <div style="font-size:9px;color:#8C8C9A;margin-bottom:12px;" id="heroCity">Vitoria-Gasteiz · España</div>
-
-        <!-- Info Pills -->
-        <div class="s3-pills">
-          <div class="s3-pill">
-            <span class="s3-pill-label" data-i18n="detail.duration">Duración</span>
-            <span class="s3-pill-val" id="statDuration">40'</span>
-          </div>
-          <div class="s3-pill">
-            <span class="s3-pill-label" data-i18n="detail.km">Distancia</span>
-            <span class="s3-pill-val" id="statKm">4.2 km</span>
-          </div>
-          <div class="s3-pill">
-            <span class="s3-pill-label" data-i18n="detail.stops">Paradas</span>
-            <span class="s3-pill-val" id="statStops">30</span>
-          </div>
+      <!-- ============ SCREEN 3: MAPA ============ -->
+      <section id="screen-map" class="screen flex-col w-full h-full bg-touri-cream">
+        <div class="px-5 pt-6 pb-3 flex justify-between items-center z-10 relative">
+          <button onclick="showScreen('screen-detail')" class="w-8 h-8 rounded-full bg-touri-dark/8 flex items-center justify-center text-touri-dark" aria-label="Volver">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <span id="map-stops-badge" class="text-xs font-bold text-touri-dark bg-touri-yellow px-2.5 py-1 rounded-full"></span>
         </div>
 
-        <!-- Tabs -->
-        <div class="s3-tabs">
-          <div class="s3-tab active" onclick="switchTab('detalles')" data-i18n="detail.tab.details">Detalles</div>
-          <div class="s3-tab" onclick="switchTab('paradas')" data-i18n="detail.tab.stops">Paradas</div>
-          <div class="s3-tab" onclick="switchTab('consejos')" data-i18n="detail.tab.tips">Consejos</div>
+        <div class="flex-1 mx-4 rounded-[18px] overflow-hidden relative" style="background:#E4D6BC;">
+          <div id="preview-map" class="absolute inset-0 w-full h-full"></div>
+          <div class="absolute text-[10px] font-semibold bg-touri-dark text-touri-cream px-1.5 py-0.5 rounded pointer-events-none" style="top:50%;left:50%;transform:translate(-50%,-50%);z-index:999;">Estás aquí</div>
         </div>
 
-        <!-- Tab contents: Detalles -->
-        <div id="tabContentDetalles" class="tab-content-pane">
-          <div class="s3-desc" id="tourDesc">
-            Recorre el corazón medieval de Vitoria-Gasteiz guiado por audio que se activa automáticamente.
-          </div>
-
-          <!-- Languages tags -->
-          <div style="font-size:8px;color:#8C8C9A;margin-bottom:6px;text-transform:uppercase;font-weight:700;" data-i18n="detail.available">Disponible en</div>
-          <div class="lang-tags" id="langTags" style="margin-bottom:12px;"></div>
-
-          <!-- Mini Gallery -->
-          <div class="s3-gallery-label" data-i18n="detail.gallery">Lugares clave</div>
-          <div class="s3-gallery">
-            <div class="s3-gal-img"><img src="https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?w=150&q=80" alt="Florida"></div>
-            <div class="s3-gal-img"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=150&q=80" alt="Catedral"></div>
-            <div class="s3-gal-img"><img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=150&q=80" alt="Plaza"></div>
-          </div>
+        <div class="px-5 py-5 z-10 relative">
+          <p id="map-title" class="font-display text-xl uppercase text-touri-dark m-0 mb-1"></p>
+          <p id="map-desc" class="text-[13px] text-touri-dark/60 m-0 mb-4"></p>
+          <button onclick="startTour()" class="w-full rounded-2xl bg-touri-green text-touri-cream font-bold text-[15px] py-4">Confirmar y salir</button>
         </div>
+      </section>
 
-        <!-- Tab contents: Paradas -->
-        <div id="tabContentParadas" class="tab-content-pane" style="display:none;">
-          <div class="stops-preview" id="stopsPreview">
-            <!-- Dynamically populated -->
-          </div>
-          <div class="stops-more" id="stopsMore">+ 26 paradas más</div>
-        </div>
-
-        <!-- Tab contents: Consejos -->
-        <div id="tabContentConsejos" class="tab-content-pane" style="display:none;">
-          <div class="s3-desc" style="line-height:1.7;">
-            <p style="margin-bottom:8px;">🎧 <strong>Lleva auriculares:</strong> Disfruta del recorrido sin molestar a los demás y con la mejor calidad de sonido.</p>
-            <p style="margin-bottom:8px;">🔋 <strong>Carga tu móvil:</strong> El uso continuo del GPS en segundo plano puede consumir batería.</p>
-            <p style="margin-bottom:8px;">📶 <strong>Descarga antes:</strong> El tour funciona 100% offline una vez cargado, no requiere datos móviles.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Footer with CTA -->
-      <div class="s3-footer">
-        <div class="s3-cost-row">
-          <span class="s3-cost-label" data-i18n="detail.price">Precio del tour</span>
-          <span class="s3-cost-val" style="color:#3D5A1A;font-weight:900;" data-i18n="explore.free">GRATIS</span>
-        </div>
-        <div class="s3-cta" onclick="startTour()" style="cursor:pointer;" data-i18n="detail.cta">Empezar tour</div>
-      </div>
     </div>
   </div>
 
-  <!-- GPS Permission Modal -->
-  <div class="modal-overlay" id="gpsModal">
-    <div class="modal-content">
-      <div class="modal-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-        </svg>
-      </div>
-      <div class="modal-title" data-i18n="gps.title">Necesitamos tu ubicación</div>
-      <div class="modal-desc" data-i18n="gps.desc">Para reproducir el audio automáticamente al acercarte a cada parada, necesitamos acceso a tu GPS.</div>
-      <div class="modal-buttons">
-        <button class="btn-primary" onclick="allowGPS()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span data-i18n="gps.allow">Permitir ubicación</span>
-        </button>
-        <button class="btn-outline" onclick="manualMode()">
-          <span data-i18n="gps.manual">Modo manual</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast -->
-  <div class="toast" id="toast"></div>
-
-  <script src="i18n.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="tour-data.js"></script>
-  <script src="gps.js"></script>
   <script>
-    let tourId = null;
+    let currentTourId = new URLSearchParams(window.location.search).get('id') || 'vitoria-casco-medieval';
+    let map = null;
 
     document.addEventListener('DOMContentLoaded', async () => {
-      // Get tour ID from URL
-      const params = new URLSearchParams(window.location.search);
-      tourId = params.get('id') || 'vitoria-casco-medieval';
-
-      await loadTourDetail();
-    });
-
-    document.addEventListener('languageChanged', () => {
-      loadTourDetail();
-    });
-
-    async function loadTourDetail() {
-      const tour = await TourData.loadTour(tourId);
+      const tour = await TourData.loadTour(currentTourId);
       if (!tour) return;
-
-      const lang = getLang();
-      const meta = TourData.getMeta(lang);
-      const stops = TourData.getStops();
-
-      // Hero image
-      if (tour.cover_image) {
-        document.getElementById('heroImg').src = tour.cover_image;
-      }
-      document.getElementById('heroCity').textContent = `${meta.city} · ${meta.country}`;
-      document.getElementById('heroName').innerHTML = meta.name;
-
-      // Stats
-      document.getElementById('statDuration').textContent = tour.stats.duration_min + "'";
-      document.getElementById('statStops').textContent = tour.stats.stops;
-      document.getElementById('statKm').textContent = tour.stats.distance_km + " km";
-      document.getElementById('statRating').textContent = tour.stats.rating;
-
-      // Languages tags
-      const langContainer = document.getElementById('langTags');
-      langContainer.innerHTML = tour.languages.map(l => `
-        <div class="lang-tag">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 22c5.52 0 10-4.48 10-10S17.52 2 12 2 2 6.48 2 12s4.48 10 10 10zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-          </svg>
-          ${t('detail.lang.' + l) || l}
-        </div>
-      `).join('');
-
-      // Description
-      document.getElementById('tourDesc').textContent = meta.description;
-
-      // Stops preview
-      const previewContainer = document.getElementById('stopsPreview');
-      previewContainer.innerHTML = stops.map((stop, i) => {
-        const name = TourData.getStopName(stop, lang);
-        let dist = '';
-        if (i === 0) {
-          dist = t('detail.start') || 'Inicio';
-        } else {
-          const prevStop = stops[i - 1];
-          const distM = TourData.distanceBetweenStops(prevStop, stop);
-          dist = distM >= 1000 ? (distM / 1000).toFixed(1) + ' km' : distM + ' m';
-        }
-        return `
-          <div class="stop-preview-item">
-            <div class="stop-num-badge">${String(stop.id).padStart(2, '0')}</div>
-            <div class="stop-preview-name">${name}</div>
-            <div class="stop-preview-dist">${dist}</div>
-          </div>
-        `;
-      }).join('');
-
-      // Remaining stops
-      const remaining = stops.length;
-      document.getElementById('stopsMore').textContent = t('detail.more_stops', { n: remaining }) || `+${remaining} paradas en total`;
-    }
-
-    function switchTab(tabId) {
-      // Toggle active state in tabs
-      document.querySelectorAll('.s3-tab').forEach(tab => {
-        tab.classList.toggle('active', tab.textContent.toLowerCase().includes(tabId.slice(0, 3)));
-      });
-
-      // Show the selected tab content pane
-      document.querySelectorAll('.tab-content-pane').forEach(pane => {
-        pane.style.display = 'none';
-      });
-      document.getElementById('tabContent' + tabId.charAt(0).toUpperCase() + tabId.slice(1)).style.display = 'block';
-    }
-
-    function goBack() {
-      window.location.href = 'tours.html';
-    }
-
-    function toggleSave() {
-      const btn = document.getElementById('saveBtn');
-      const svg = btn.querySelector('svg');
-      const isSaved = svg.getAttribute('fill') === 'currentColor';
+      const lang = 'es'; // Ideally get from i18n
+      const meta = tour.meta[lang] || tour.meta['es'];
       
-      if (isSaved) {
-        svg.removeAttribute('fill');
-        svg.style.color = '';
-      } else {
-        svg.setAttribute('fill', 'currentColor');
-        svg.style.color = '#FFD93D';
+      // Setup UI text
+      const durationHours = Math.round(tour.stats.duration_min / 60);
+      const distKm = (tour.stats.distance_m / 1000).toFixed(1);
+      
+      document.getElementById('detail-title').innerHTML = `Descubre <br/><span class="text-touri-yellow">${meta.name || meta.city}</span>`;
+      document.getElementById('detail-desc').innerHTML = `${tour.stops.length} paradas · ${durationHours} horas · ${distKm} km. Guía de audio que se activa sola al llegar.`;
+      
+      document.getElementById('map-stops-badge').textContent = `${tour.stops.length} paradas`;
+      document.getElementById('map-title').textContent = meta.name || meta.city;
+      document.getElementById('map-desc').textContent = `${distKm} km · empieza en ${tour.stops[0].name[lang]}`;
+      
+      // Try to load image
+      let imgUrl = 'https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=1200&q=80';
+      if(tour.stops && tour.stops[0] && tour.stops[0].wiki_title) {
+        const wikiImg = await TourData.fetchWikiImage(tour.stops[0].wiki_title);
+        if(wikiImg) imgUrl = wikiImg;
       }
-      showToast(t('toast.saved') || '¡Tour guardado!');
+      document.getElementById('detail-bg').src = imgUrl;
+
+      // Setup Map
+      initMap(tour);
+    });
+
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+      if (screenId === 'screen-map' && map) {
+        setTimeout(() => { map.invalidateSize(); }, 100);
+      }
     }
 
     function startTour() {
-      document.getElementById('gpsModal').classList.add('show');
+      window.location.href = `tour-player.html?id=${currentTourId}`;
     }
 
-    async function allowGPS() {
-      const result = await GPS.requestPermission();
-      document.getElementById('gpsModal').classList.remove('show');
+    function initMap(tour) {
+      map = L.map('preview-map', { zoomControl: false, dragging: false, scrollWheelZoom: false }).setView([42.846718, -2.671635], 16);
+      
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© OpenStreetMap © CARTO'
+      }).addTo(map);
 
-      if (result === 'denied') {
-        showToast(t('gps.denied') || 'Ubicación denegada.');
-        TourData.setManualMode(true);
-      } else {
-        TourData.setManualMode(false);
+      const latlngs = tour.stops.map(s => [s.lat, s.lon]);
+      
+      const dotIcon = L.divIcon({
+        html: `<div style="width:14px; height:14px; border-radius:50%; background:#94A35D;"></div>`,
+        className: ''
+      });
+      
+      tour.stops.forEach(s => {
+        L.marker([s.lat, s.lon], { icon: dotIcon }).addTo(map);
+      });
+      
+      L.polyline(latlngs, { color: '#94A35D', weight: 3, dashArray: '2, 8', opacity: 1, lineCap: 'round' }).addTo(map);
+      
+      if(latlngs.length > 0) {
+        map.fitBounds(L.latLngBounds(latlngs), { padding: [20, 20] });
       }
-
-      TourData.startTour();
-      window.location.href = `tour-player.html?id=${tourId}`;
-    }
-
-    function manualMode() {
-      document.getElementById('gpsModal').classList.remove('show');
-      TourData.setManualMode(true);
-      TourData.startTour();
-      window.location.href = `tour-player.html?id=${tourId}`;
-    }
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
     }
   </script>
 </body>

@@ -1,163 +1,128 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#EFE1CD">
-  <meta name="description" content="Touri — Audioguía GPS de Vitoria-Gasteiz. 17 paradas, 2 horas a pie. Se activa sola al llegar a cada punto. Gratis.">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Touri — Audio Tour</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" type="image/png" href="assets/icons/icon-192.png">
-  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Touri — Inicio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="tailwind-config.js"></script>
 </head>
-<body class="splash-body-root">
-
-  <div class="app-container">
-    <div class="splash-screen s1" id="splashScreen">
-      
-      <!-- Notch bar & status bar simulator inside the app container on desktop (removed or styled) -->
-      <div class="notch-bar">
-        <div class="notch-pill"></div>
-      </div>
-      <div class="status">
-        <span>9:41</span>
-        <span>●●●</span>
-      </div>
-
-      <div class="s1-body">
-        <!-- Gorgeous animated mockup illustration container -->
-        <div class="s1-illus">
-          <div class="s1-sky"></div>
-          <div class="s1-sun"></div>
-          <div class="s1-cloud s1-cloud-1"></div>
-          <div class="s1-cloud s1-cloud-2"></div>
-          <div class="s1-balloon">
-            <div class="s1-balloon-top"></div>
-            <div class="s1-balloon-basket"></div>
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div class="w-full max-w-[390px] bg-white rounded-[36px] p-2.5 shadow-2xl">
+    <div class="relative w-full overflow-hidden rounded-[28px]" style="aspect-ratio: 9 / 16; max-height: 720px;">
+      <!-- ============ SCREEN 1: HOME ============ -->
+      <section id="screen-home" class="screen active flex-col w-full h-full bg-touri-cream font-sans">
+        <div class="flex items-center justify-between px-5 pt-6">
+          <span class="font-display text-2xl tracking-tight text-touri-green">TOURI</span>
+          <div class="relative">
+             <button id="lang-btn" class="flex items-center gap-1.5 rounded-full bg-touri-dark text-touri-cream text-xs px-3 py-1.5" onclick="toggleLangMenu()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <span id="current-lang-text">Español</span>
+             </button>
+             <div id="lang-menu" class="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg overflow-hidden hidden z-50">
+               <button class="w-full text-left px-4 py-2 text-sm text-touri-dark hover:bg-touri-cream" onclick="selectLang('es')">Español</button>
+               <button class="w-full text-left px-4 py-2 text-sm text-touri-dark hover:bg-touri-cream" onclick="selectLang('en')">English</button>
+               <button class="w-full text-left px-4 py-2 text-sm text-touri-dark hover:bg-touri-cream" onclick="selectLang('fr')">Français</button>
+             </div>
           </div>
-          <div class="s1-mountain s1-mountain-1"></div>
-          <div class="s1-mountain s1-mountain-2"></div>
-          <div class="s1-mountain-snow-1"></div>
-          <div class="s1-shadow"></div>
-          
-          <!-- CSS animated boots instead of emojis -->
-          <div class="boots-wrap">
-            <div class="boot boot-l">
-              <div class="boot-shaft"></div>
-              <div class="boot-toe"></div>
-              <div class="boot-sole"></div>
-              <div class="boot-lace boot-lace-1"></div>
-              <div class="boot-lace boot-lace-2"></div>
-            </div>
-            <div class="boot boot-r">
-              <div class="boot-shaft"></div>
-              <div class="boot-toe"></div>
-              <div class="boot-sole"></div>
-              <div class="boot-lace boot-lace-1"></div>
-              <div class="boot-lace boot-lace-2"></div>
-            </div>
-          </div>
+        </div>
+        <p class="px-5 mt-0.5 mb-5 text-sm text-touri-dark/60">Tu guía local, sin instalar nada.</p>
 
-          <!-- City pills CSS (replacing the 📍 pins) -->
-          <div class="city-pill pill-vitoria">
-            <div class="city-thumb">
-              <img src="https://images.unsplash.com/photo-1508849789987-4e5333c12b78?w=80&q=80" alt="">
-            </div>
-            <span class="city-name" data-i18n="city_vitoria">Vitoria</span>
-          </div>
-          <div class="city-pill pill-paris">
-            <div class="city-thumb">
-              <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=80&q=80" alt="">
-            </div>
-            <span class="city-name" data-i18n="city_paris">Paris</span>
+        <div class="px-5 flex-1 overflow-hidden flex flex-col">
+          <p class="text-xs font-bold tracking-wide uppercase text-touri-dark mb-2.5">Tours disponibles</p>
+
+          <div id="tours-container" class="flex-1 overflow-y-auto pb-4">
+             <!-- Tours will be injected here -->
           </div>
         </div>
 
-        <!-- Logo & Header -->
-        <div class="s1-logo-wrap" style="display: flex; align-items: center; gap: 8px;">
-          <img src="MANUAL TOURI-02.png" alt="Touri Logo" style="height: 28px; filter: brightness(0) invert(1); opacity: .9;">
-          <div class="s1-logo-pill" style="background: var(--blue); color: #fff; font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px;">Tu guía local</div>
+        <div class="px-5 py-5 flex justify-center gap-5 border-t border-touri-dark/10 text-[11px] text-touri-dark/60">
+          <span>Cómo funciona</span><span>Sobre Touri</span><span>Contacto</span>
         </div>
-
-        <div class="s1-explore" data-i18n="explore.greeting">Explora la ciudad</div>
-        <div class="s1-worldwide" data-i18n="splash.worldwide">AL AIRE LIBRE</div>
-        
-        <h1 class="s1-tagline" id="splashHeadline">
-          Descubre la<br><em>ciudad que</em><br>te espera
-        </h1>
-        
-        <div class="s1-sub" data-i18n="splash.sub">
-          17 paradas · 2 horas · ~4.5 km a pie. Guía de audio que se activa sola.
-        </div>
-
-        <!-- Language Selector -->
-        <div class="s1-lang-selector" id="langSelector">
-          <button class="s1-lang-btn active" data-lang="es" onclick="selectLang('es')">ES</button>
-          <button class="s1-lang-btn" data-lang="en" onclick="selectLang('en')">EN</button>
-          <button class="s1-lang-btn" data-lang="fr" onclick="selectLang('fr')">FR</button>
-        </div>
-
-        <!-- CTA Button -->
-        <div class="s1-btn" onclick="startApp()" id="ctaButton">
-          <span data-i18n="splash.cta">Empezar ruta gratis</span>
-          <span class="s1-btn-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </span>
-        </div>
-        
-        <div class="s1-signup"><span data-i18n="splash.hint">Sin instalación · Funciona sin datos</span></div>
-      </div>
+      </section>
     </div>
   </div>
 
-  <!-- Toast -->
-  <div class="toast" id="toast"></div>
-
   <script src="i18n.js"></script>
+  <script src="tour-data.js"></script>
   <script>
-    // ── Init ──
-    document.addEventListener('DOMContentLoaded', () => {
-      // Auto-detect and set language
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Language logic
       const currentLang = getLang();
-      updateLangPills(currentLang);
-      updateHeadline(currentLang);
+      updateLangUI(currentLang);
+      
+      // 2. Load tours
+      const tourIds = ['vitoria-casco-medieval']; 
+      const toursContainer = document.getElementById('tours-container');
+      
+      for (const id of tourIds) {
+        const tour = await TourData.loadTour(id);
+        if (tour) {
+          const meta = TourData.getMeta(getLang());
+          
+          let imgUrl = 'https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=780&q=80'; 
+          if(tour.stops && tour.stops[0] && tour.stops[0].wiki_title) {
+            const wikiImg = await TourData.fetchWikiImage(tour.stops[0].wiki_title);
+            if(wikiImg) imgUrl = wikiImg;
+          }
+
+          const button = document.createElement('button');
+          button.className = "w-full text-left relative rounded-[18px] overflow-hidden h-[150px] mb-3.5 block";
+          button.onclick = () => { window.location.href = \`tour-detail.html?id=\${id}\`; };
+          
+          button.innerHTML = \`
+            <img src="\${imgUrl}" class="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-touri-dark/90 via-touri-dark/10 to-transparent"></div>
+            <div class="absolute bottom-3 left-3.5 right-3.5">
+              <p class="font-display text-xl uppercase text-touri-cream m-0">\${meta.name || meta.city}</p>
+              <p class="text-xs text-touri-yellow mt-0.5">\${tour.stops.length} paradas · \${Math.round(tour.stats.duration_min/60)}h · gratis</p>
+            </div>
+          \`;
+          toursContainer.appendChild(button);
+        }
+      }
+
+      // 3. Upcoming placeholder
+      const upcomingDiv = document.createElement('div');
+      upcomingDiv.className = "relative rounded-[18px] overflow-hidden h-[100px] opacity-55 mt-2";
+      upcomingDiv.innerHTML = \`
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=780&q=80" class="absolute inset-0 w-full h-full object-cover grayscale-[40%]" alt="" />
+        <div class="absolute inset-0 bg-touri-dark/55"></div>
+        <div class="absolute bottom-2.5 left-3.5">
+          <p class="font-display text-base uppercase text-touri-cream m-0">París</p>
+          <p class="text-[11px] text-touri-cream/75 mt-0.5">Próximamente</p>
+        </div>
+      \`;
+      toursContainer.appendChild(upcomingDiv);
+      
+      applyTranslations();
     });
+
+    function toggleLangMenu() {
+      const menu = document.getElementById('lang-menu');
+      menu.classList.toggle('hidden');
+    }
 
     function selectLang(lang) {
       setLanguage(lang);
-      updateLangPills(lang);
-      updateHeadline(lang);
+      updateLangUI(lang);
+      toggleLangMenu();
+      window.location.reload(); 
     }
 
-    function updateLangPills(lang) {
-      document.querySelectorAll('.s1-lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-      });
+    function updateLangUI(lang) {
+      const texts = { 'es': 'Español', 'en': 'English', 'fr': 'Français' };
+      document.getElementById('current-lang-text').innerText = texts[lang] || 'Español';
     }
 
-    function updateHeadline(lang) {
-      const el = document.getElementById('splashHeadline');
-      const h1 = t('splash.headline.1');
-      const h2 = t('splash.headline.2');
-      const h3 = t('splash.headline.3');
-      el.innerHTML = `${h1}<br><em>${h2}</em><br>${h3}`;
-    }
-
-    function startApp() {
-      window.location.href = 'tours.html';
-    }
-
-    // ── Register Service Worker ──
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(reg => console.log('[SW] Registered:', reg.scope))
-        .catch(err => console.warn('[SW] Registration failed:', err));
-    }
+    document.addEventListener('click', (e) => {
+      const btn = document.getElementById('lang-btn');
+      const menu = document.getElementById('lang-menu');
+      if(btn && menu && !btn.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.add('hidden');
+      }
+    });
   </script>
 </body>
 </html>

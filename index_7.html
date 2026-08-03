@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Touri — Preview navegable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Fjalla+One&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          touri: {
+            green: "#94A35D",
+            cream: "#EFE1CD",
+            blue: "#5398D2",
+            yellow: "#F4EF9F",
+            dark: "#232321",
+          },
+        },
+        fontFamily: {
+          display: ['"Fjalla One"', "sans-serif"],
+          sans: ["Outfit", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body { background: #EDEDED; font-family: Outfit, sans-serif; }
+  .screen { display: none; }
+  .screen.active { display: flex; }
+</style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <div class="w-full max-w-[390px] bg-white rounded-[36px] p-2.5 shadow-2xl">
+    <div class="relative w-full overflow-hidden rounded-[28px]" style="aspect-ratio: 9 / 16; max-height: 720px;">
+
+      <!-- ============ SCREEN 1: HOME ============ -->
+      <section id="screen-home" class="screen active flex-col w-full h-full bg-touri-cream font-sans">
+        <div class="flex items-center justify-between px-5 pt-6">
+          <span class="font-display text-2xl tracking-tight text-touri-green">TOURI</span>
+          <button class="flex items-center gap-1.5 rounded-full bg-touri-dark text-touri-cream text-xs px-3 py-1.5">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Español
+          </button>
+        </div>
+        <p class="px-5 mt-0.5 mb-5 text-sm text-touri-dark/60">Tu guía local, sin instalar nada.</p>
+
+        <div class="px-5 flex-1 overflow-hidden">
+          <p class="text-xs font-bold tracking-wide uppercase text-touri-dark mb-2.5">Tours disponibles</p>
+
+          <button data-goto="screen-detail" class="w-full text-left relative rounded-[18px] overflow-hidden h-[150px] mb-3.5 block">
+            <img src="https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=780&q=80" class="absolute inset-0 w-full h-full object-cover" alt="" />
+            <div class="absolute inset-0 bg-gradient-to-t from-touri-dark/90 via-touri-dark/10 to-transparent"></div>
+            <div class="absolute bottom-3 left-3.5 right-3.5">
+              <p class="font-display text-xl uppercase text-touri-cream m-0">Vitoria-Gasteiz</p>
+              <p class="text-xs text-touri-yellow mt-0.5">17 paradas · 2h · gratis</p>
+            </div>
+          </button>
+
+          <div class="relative rounded-[18px] overflow-hidden h-[100px] opacity-55">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=780&q=80" class="absolute inset-0 w-full h-full object-cover grayscale-[40%]" alt="" />
+            <div class="absolute inset-0 bg-touri-dark/55"></div>
+            <div class="absolute bottom-2.5 left-3.5">
+              <p class="font-display text-base uppercase text-touri-cream m-0">París</p>
+              <p class="text-[11px] text-touri-cream/75 mt-0.5">Próximamente</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-5 py-5 flex justify-center gap-5 border-t border-touri-dark/10 text-[11px] text-touri-dark/60">
+          <span>Cómo funciona</span><span>Sobre Touri</span><span>Contacto</span>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 2: DETALLE DEL TOUR (hero) ============ -->
+      <section id="screen-detail" class="screen w-full h-full relative">
+        <button data-goto="screen-home" class="absolute top-5 left-5 z-10 w-8 h-8 rounded-full bg-touri-cream/20 backdrop-blur-sm flex items-center justify-center text-touri-cream" aria-label="Volver">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <img src="https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=1200&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Callejuela empedrada del casco medieval de Vitoria-Gasteiz" />
+        <div class="absolute inset-0 bg-gradient-to-t from-touri-dark/95 via-touri-dark/40 to-touri-dark/10"></div>
+
+        <div class="absolute inset-x-0 bottom-0 px-5 pb-7 pt-6">
+          <span class="mb-3.5 inline-block rounded-full bg-touri-blue px-3 py-1.5 text-[11px] font-bold tracking-wide text-touri-cream">AL AIRE LIBRE</span>
+          <h1 class="mb-3 font-display text-[34px] font-black uppercase leading-[1.1] tracking-tight text-touri-cream">
+            Descubre la ciudad<br /><span class="text-touri-yellow">que te espera</span>
+          </h1>
+          <p class="mb-5 text-sm leading-relaxed text-touri-cream/85">17 paradas · 2 horas · 4.5 km. Guía de audio que se activa sola al llegar.</p>
+          <button data-goto="screen-map" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-touri-green py-4 text-[15px] font-bold text-touri-cream active:scale-[0.98] transition-transform">
+            Empezar ruta gratis
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="mt-3 flex justify-center gap-3 text-[11px] text-touri-cream/65">
+            <span>Sin instalación</span><span>·</span><span>Funciona sin datos</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 3: MAPA ============ -->
+      <section id="screen-map" class="screen flex-col w-full h-full bg-touri-cream">
+        <div class="px-5 pt-6 pb-3 flex justify-between items-center">
+          <button data-goto="screen-detail" class="w-8 h-8 rounded-full bg-touri-dark/8 flex items-center justify-center text-touri-dark" aria-label="Volver">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <span class="text-xs font-bold text-touri-dark bg-touri-yellow px-2.5 py-1 rounded-full">17 paradas</span>
+        </div>
+
+        <div class="flex-1 mx-4 rounded-[18px] overflow-hidden relative" style="background:#E4D6BC;">
+          <svg width="100%" height="100%" viewBox="0 0 320 380" class="absolute inset-0">
+            <path d="M40 40 Q 100 20 140 80 T 220 140 Q 260 180 200 230 T 260 320" stroke="#94A35D" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" fill="none"/>
+            <circle cx="40" cy="40" r="9" fill="#5398D2"/>
+            <circle cx="140" cy="80" r="7" fill="#94A35D"/>
+            <circle cx="220" cy="140" r="7" fill="#94A35D"/>
+            <circle cx="200" cy="230" r="10" fill="#F4EF9F" stroke="#232321" stroke-width="1.5"/>
+            <circle cx="260" cy="320" r="7" fill="#94A35D"/>
+          </svg>
+          <div class="absolute text-[10px] font-semibold bg-touri-dark text-touri-cream px-1.5 py-0.5 rounded" style="top:196px;left:214px;">Estás aquí</div>
+        </div>
+
+        <div class="px-5 py-5">
+          <p class="font-display text-xl uppercase text-touri-dark m-0 mb-1">Casco medieval</p>
+          <p class="text-[13px] text-touri-dark/60 m-0 mb-4">4.5 km · empieza en Plaza de la Virgen Blanca</p>
+          <button data-goto="screen-player" class="w-full rounded-2xl bg-touri-green text-touri-cream font-bold text-[15px] py-4">Confirmar y salir</button>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 4: EN RUTA (reproductor activo) ============ -->
+      <section id="screen-player" class="screen w-full h-full relative bg-touri-dark">
+        <img src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=780&q=80" class="absolute inset-0 w-full h-full object-cover opacity-55" alt="" />
+        <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(35,35,33,0.85) 0%, rgba(35,35,33,0.3) 40%, rgba(35,35,33,0.92) 100%);"></div>
+
+        <button data-goto="screen-map" class="absolute top-5 left-5 z-10 w-8 h-8 rounded-full bg-touri-cream/15 backdrop-blur-sm flex items-center justify-center text-touri-cream" aria-label="Volver al mapa">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <div class="absolute top-5 right-5 flex items-center gap-2">
+          <button data-goto="screen-route" class="w-8 h-8 rounded-full bg-touri-cream/15 backdrop-blur-sm flex items-center justify-center text-touri-cream" aria-label="Ver recorrido completo">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>
+          </button>
+          <div class="flex items-center gap-1.5 bg-touri-blue text-touri-cream text-[11px] font-bold px-3 py-1.5 rounded-full">
+            <span class="w-1.5 h-1.5 rounded-full bg-touri-yellow"></span> PARADA 6 DE 17
+          </div>
+        </div>
+
+        <div class="absolute top-[180px] left-[22px] right-[22px]">
+          <p class="font-display text-[28px] uppercase text-touri-yellow leading-[1.1] m-0 mb-2">Catedral de<br/>Santa María</p>
+          <p class="text-[13px] text-touri-cream/75 m-0">Próxima parada a 350 m · 4 min a pie</p>
+        </div>
+
+        <div class="absolute bottom-0 left-0 right-0 px-5 pb-7 pt-5">
+          <div class="flex items-center gap-[2px] h-8 mb-4">
+            <div class="w-[3px] h-[14px] bg-touri-green rounded"></div>
+            <div class="w-[3px] h-[22px] bg-touri-green rounded"></div>
+            <div class="w-[3px] h-[10px] bg-touri-green rounded"></div>
+            <div class="w-[3px] h-[26px] bg-touri-green rounded"></div>
+            <div class="w-[3px] h-[16px] bg-touri-green rounded"></div>
+            <div class="w-[3px] h-[20px] bg-touri-cream/25 rounded"></div>
+            <div class="w-[3px] h-[12px] bg-touri-cream/25 rounded"></div>
+            <div class="w-[3px] h-[24px] bg-touri-cream/25 rounded"></div>
+            <div class="w-[3px] h-[14px] bg-touri-cream/25 rounded"></div>
+            <div class="w-[3px] h-[18px] bg-touri-cream/25 rounded"></div>
+          </div>
+          <div class="flex items-center justify-center gap-7">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-touri-cream"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+            <button id="play-btn" class="w-[60px] h-[60px] rounded-full bg-touri-green flex items-center justify-center text-touri-cream">
+              <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-touri-cream"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ SCREEN 5: RECORRIDO COMPLETO ============ -->
+      <section id="screen-route" class="screen flex-col w-full h-full bg-touri-dark">
+        <div class="px-5 pt-6 pb-3.5 flex justify-between items-center">
+          <span class="font-display text-lg text-touri-cream">Recorrido completo</span>
+          <button data-goto="screen-player" class="w-7 h-7 rounded-full bg-touri-cream/12 flex items-center justify-center text-touri-cream text-sm" aria-label="Cerrar">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <div class="flex-1 relative" style="background:#1a1a18;">
+          <svg width="100%" height="100%" viewBox="0 0 320 320" class="absolute inset-0 opacity-35">
+            <line x1="0" y1="60" x2="320" y2="70" stroke="#5a5a55" stroke-width="1"/>
+            <line x1="0" y1="140" x2="320" y2="150" stroke="#5a5a55" stroke-width="1"/>
+            <line x1="0" y1="220" x2="320" y2="230" stroke="#5a5a55" stroke-width="1"/>
+            <line x1="60" y1="0" x2="70" y2="320" stroke="#5a5a55" stroke-width="1"/>
+            <line x1="180" y1="0" x2="190" y2="320" stroke="#5a5a55" stroke-width="1"/>
+          </svg>
+          <svg width="100%" height="100%" viewBox="0 0 320 320" class="absolute inset-0">
+            <path d="M60 60 Q 120 40 150 90 T 220 130 Q 250 160 190 200 T 150 260" stroke="#94A35D" stroke-width="2.5" stroke-dasharray="1 7" stroke-linecap="round" fill="none" opacity="0.7"/>
+            <circle cx="60" cy="60" r="6" fill="#5a6b45"/>
+            <circle cx="150" cy="90" r="6" fill="#5a6b45"/>
+            <circle cx="220" cy="130" r="6" fill="#5a6b45"/>
+            <circle cx="190" cy="200" r="6" fill="#5a6b45"/>
+          </svg>
+          <div class="absolute rounded-full" style="top:236px;left:120px;width:60px;height:60px;background:radial-gradient(circle,rgba(244,239,159,0.35) 0%,transparent 70%);"></div>
+          <div class="absolute rounded-full" style="top:254px;left:140px;width:20px;height:20px;background:#F4EF9F;border:3px solid #232321;box-shadow:0 0 0 1.5px #F4EF9F;"></div>
+          <div class="absolute top-5 right-4 flex flex-col gap-1.5">
+            <button class="w-8 h-8 rounded-lg bg-touri-dark/85 flex items-center justify-center text-touri-cream text-base" aria-label="Acercar">+</button>
+            <button class="w-8 h-8 rounded-lg bg-touri-dark/85 flex items-center justify-center text-touri-cream text-base" aria-label="Alejar">–</button>
+          </div>
+          <div class="absolute text-touri-cream text-xs font-bold bg-touri-green px-3 py-1.5 rounded-full" style="top:196px;left:70px;">Parque de la Florida</div>
+        </div>
+
+        <div class="px-[18px] pt-4 pb-5" style="background:#2b2b28;">
+          <div class="flex gap-3 mb-3.5">
+            <div class="w-[52px] h-[52px] rounded-xl bg-touri-cream/10 flex-shrink-0"></div>
+            <div>
+              <p class="text-[11px] font-bold tracking-wide text-touri-yellow m-0 mb-0.5">CAPÍTULO 01 · AHORA</p>
+              <p class="font-display text-lg text-touri-cream m-0">Parque de la Florida</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="bg-touri-cream/6 rounded-xl py-2.5 text-center">
+              <p class="text-lg font-black text-touri-cream m-0">1/17</p>
+              <p class="text-[10px] text-touri-cream/55 mt-0.5 m-0">Paradas</p>
+            </div>
+            <div class="bg-touri-cream/6 rounded-xl py-2.5 text-center">
+              <p class="text-lg font-black text-touri-cream m-0">95m</p>
+              <p class="text-[10px] text-touri-cream/55 mt-0.5 m-0">Próxima</p>
+            </div>
+            <div class="bg-touri-cream/6 rounded-xl py-2.5 text-center">
+              <p class="text-lg font-black text-touri-cream m-0">120'</p>
+              <p class="text-[10px] text-touri-cream/55 mt-0.5 m-0">Restante</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll("[data-goto]").forEach((el) => {
+      el.addEventListener("click", () => {
+        document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
+        document.getElementById(el.dataset.goto).classList.add("active");
+      });
+    });
+
+    const playBtn = document.getElementById("play-btn");
+    const playIcon = document.getElementById("play-icon");
+    let playing = true;
+    playBtn.addEventListener("click", () => {
+      playing = !playing;
+      playIcon.innerHTML = playing
+        ? '<rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/>'
+        : '<path d="M8 5v14l11-7z"/>';
+    });
+  </script>
+</body>
+</html>
