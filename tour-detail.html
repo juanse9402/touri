@@ -67,6 +67,7 @@
   </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="i18n.js"></script>
   <script src="tour-data.js"></script>
   <script>
     let currentTourId = new URLSearchParams(window.location.search).get('id') || 'vitoria-casco-medieval';
@@ -75,7 +76,7 @@
     document.addEventListener('DOMContentLoaded', async () => {
       const tour = await TourData.loadTour(currentTourId);
       if (!tour) return;
-      const lang = 'es'; // Ideally get from i18n
+      const lang = typeof getLang === 'function' ? getLang() : 'es';
       const meta = tour.meta[lang] || tour.meta['es'];
       
       // Setup UI text
