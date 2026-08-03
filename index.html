@@ -69,16 +69,16 @@
 
           const button = document.createElement('button');
           button.className = "w-full text-left relative rounded-[18px] overflow-hidden h-[150px] mb-3.5 block";
-          button.onclick = () => { window.location.href = \`tour-detail.html?id=\${id}\`; };
+          button.onclick = () => { window.location.href = `tour-detail.html?id=${id}`; };
           
-          button.innerHTML = \`
-            <img src="\${imgUrl}" class="absolute inset-0 w-full h-full object-cover" alt="" />
+          button.innerHTML = `
+            <img src="${imgUrl}" class="absolute inset-0 w-full h-full object-cover" alt="" />
             <div class="absolute inset-0 bg-gradient-to-t from-touri-dark/90 via-touri-dark/10 to-transparent"></div>
             <div class="absolute bottom-3 left-3.5 right-3.5">
-              <p class="font-display text-xl uppercase text-touri-cream m-0">\${meta.name || meta.city}</p>
-              <p class="text-xs text-touri-yellow mt-0.5">\${tour.stops.length} paradas · \${Math.round(tour.stats.duration_min/60)}h · gratis</p>
+              <p class="font-display text-xl uppercase text-touri-cream m-0">${meta.name || meta.city}</p>
+              <p class="text-xs text-touri-yellow mt-0.5">${tour.stops.length} paradas · ${Math.round(tour.stats.duration_min/60)}h · gratis</p>
             </div>
-          \`;
+          `;
           toursContainer.appendChild(button);
         }
       }
@@ -86,14 +86,14 @@
       // 3. Upcoming placeholder
       const upcomingDiv = document.createElement('div');
       upcomingDiv.className = "relative rounded-[18px] overflow-hidden h-[100px] opacity-55 mt-2";
-      upcomingDiv.innerHTML = \`
+      upcomingDiv.innerHTML = `
         <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=780&q=80" class="absolute inset-0 w-full h-full object-cover grayscale-[40%]" alt="" />
         <div class="absolute inset-0 bg-touri-dark/55"></div>
         <div class="absolute bottom-2.5 left-3.5">
           <p class="font-display text-base uppercase text-touri-cream m-0">París</p>
           <p class="text-[11px] text-touri-cream/75 mt-0.5">Próximamente</p>
         </div>
-      \`;
+      `;
       toursContainer.appendChild(upcomingDiv);
       
       applyTranslations();
