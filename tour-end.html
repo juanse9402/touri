@@ -57,6 +57,14 @@
       <!-- Filled dynamically -->
     </div>
 
+    <!-- Rating Section -->
+    <div class="end-rating animate-fade-in animate-delay-3" id="endRating" style="text-align: center; margin: 2rem 0;">
+      <p class="end-rating-title" data-i18n="end.rating_title" style="font-size: 14px; font-weight: bold; color: rgba(237, 237, 237, 0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Califica este tour</p>
+      <div class="stars-container" style="display: flex; gap: 8px; justify-content: center;" id="starContainer">
+        <!-- Stars injected by JS -->
+      </div>
+    </div>
+
     <!-- Buttons -->
     <div class="end-buttons animate-fade-in animate-delay-4">
       <button class="btn-secondary" onclick="shareExperience()">
@@ -145,7 +153,30 @@
 
       // Clear tour state
       TourData.clearState();
+
+      // Render initial empty stars or previous rating
+      const savedRating = localStorage.getItem(`touri_rating_${tourId}`) || 0;
+      renderStars(savedRating);
     });
+
+    function renderStars(rating) {
+      const container = document.getElementById('starContainer');
+      let html = '';
+      for (let i = 1; i <= 5; i++) {
+        const isFilled = i <= rating;
+        const color = isFilled ? '#E4D6BC' : 'rgba(237, 237, 237, 0.2)';
+        html += `<svg onclick="rateTour(${i})" style="cursor: pointer; width: 32px; height: 32px; fill: ${color}; transition: all 0.2s; transform: scale(${isFilled ? 1.1 : 1}); margin: 0 2px;" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function rateTour(rating) {
+      renderStars(rating);
+      const params = new URLSearchParams(window.location.search);
+      const tourId = params.get('id') || 'vitoria-casco-medieval';
+      localStorage.setItem(`touri_rating_${tourId}`, rating);
+      showToast(t('end.rating_thanks'));
+    }
 
     function shareExperience() {
       const lang = getLang();
