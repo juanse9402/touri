@@ -64,7 +64,26 @@
 
         <div class="absolute top-[180px] left-[22px] right-[22px] z-10">
           <p id="walkStopName" class="font-display text-[28px] uppercase text-touri-yellow leading-[1.1] m-0 mb-2">Buscando<br/>Ubicación...</p>
-          <p id="nextStopName" class="text-[13px] text-touri-cream/75 m-0">Próxima parada...</p>
+          <p id="nextStopName" class="text-[13px] text-touri-cream/75 m-0 mb-4">Próxima parada...</p>
+          
+          <button id="readMoreBtn" onclick="toggleInfoSheet()" class="bg-touri-cream/15 backdrop-blur-sm px-4 py-2.5 rounded-full text-touri-cream text-xs font-bold flex items-center gap-2 transition-transform active:scale-95 hidden">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Leer sobre el lugar
+          </button>
+        </div>
+
+        <div id="info-sheet" class="absolute inset-0 bg-touri-dark z-50 transform translate-y-full transition-transform duration-300 flex flex-col">
+          <div class="relative h-[240px] flex-shrink-0">
+            <img id="info-photo" src="" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-touri-dark to-transparent"></div>
+            <button onclick="toggleInfoSheet()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-touri-dark/50 flex items-center justify-center text-touri-cream backdrop-blur">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div class="flex-1 overflow-y-auto px-6 pb-8 -mt-6 relative z-10">
+            <h2 id="info-title" class="font-display text-2xl text-touri-yellow uppercase mb-3 leading-tight"></h2>
+            <div id="info-text" class="text-[15px] text-touri-cream/85 leading-relaxed space-y-4"></div>
+          </div>
         </div>
 
         <div class="absolute bottom-0 left-0 right-0 px-5 pb-7 pt-5 z-10">

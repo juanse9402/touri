@@ -68,6 +68,12 @@ function showScreen(id) {
 }
 window.showScreen = showScreen;
 
+function toggleInfoSheet() {
+  const sheet = document.getElementById('info-sheet');
+  if(sheet) sheet.classList.toggle('translate-y-full');
+}
+window.toggleInfoSheet = toggleInfoSheet;
+
 // ─── TOUR LOGIC ───
 function startTour() {
   if (!TourData.getState().isPlaying) {
@@ -105,6 +111,9 @@ function updateWalkingScreen() {
   const nextNameEl = document.getElementById('nextStopName');
   if(nextNameEl) nextNameEl.textContent = `Próxima: ${TourData.getStopName(stop, lang)}`;
   
+  const btn = document.getElementById('readMoreBtn');
+  if(btn) btn.classList.add('hidden'); // Hide read more when walking
+  
   const pillEl = document.getElementById('walkProgressPill');
   if(pillEl) pillEl.textContent = `${currentStopIndex + 1}/${stops.length}`;
   
@@ -133,6 +142,19 @@ async function updateArrivedScreen() {
   const numEl = document.getElementById('walkStopNum');
   if(numEl) numEl.textContent = `PARADA ${currentStopIndex + 1} DE ${stops.length}`;
 
+  const btn = document.getElementById('readMoreBtn');
+  if(btn) btn.classList.remove('hidden');
+
+  const infoTitle = document.getElementById('info-title');
+  if(infoTitle) infoTitle.textContent = TourData.getStopName(stop, lang);
+  
+  const infoText = document.getElementById('info-text');
+  if(infoText) {
+    const desc = TourData.getStopDescription(stop, lang) || 'No hay descripción disponible para esta parada.';
+    // Replace newlines with paragraph tags
+    infoText.innerHTML = desc.split('\n').filter(p => p.trim() !== '').map(p => `<p>${p}</p>`).join('');
+  }
+
   const arrivedNameEl = document.getElementById('arrivedName');
   if(arrivedNameEl) arrivedNameEl.textContent = TourData.getStopName(stop, lang);
   
@@ -141,11 +163,14 @@ async function updateArrivedScreen() {
 
   const photoEl = document.getElementById('arrivedPhoto');
   const playerBg = document.getElementById('player-bg');
+  const infoPhoto = document.getElementById('info-photo');
+  
   if (stop.wiki_title) {
     const imgUrl = await TourData.fetchWikiImage(stop.wiki_title);
     if (imgUrl) {
       if(photoEl) photoEl.style.backgroundImage = `url(${imgUrl})`;
       if(playerBg) playerBg.src = imgUrl;
+      if(infoPhoto) infoPhoto.src = imgUrl;
     }
   }
 
