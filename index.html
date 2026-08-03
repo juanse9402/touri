@@ -27,10 +27,10 @@
              </div>
           </div>
         </div>
-        <p class="px-5 mt-0.5 mb-5 text-sm text-touri-dark/60">Tu guía local, sin instalar nada.</p>
+        <p data-i18n="home.subtitle" class="px-5 mt-0.5 mb-5 text-sm text-touri-dark/60">Tu guía local, sin instalar nada.</p>
 
         <div class="px-5 flex-1 overflow-hidden flex flex-col">
-          <p class="text-xs font-bold tracking-wide uppercase text-touri-dark mb-2.5">Tours disponibles</p>
+          <p data-i18n="home.tours" class="text-xs font-bold tracking-wide uppercase text-touri-dark mb-2.5">Tours disponibles</p>
 
           <div id="tours-container" class="flex-1 overflow-y-auto pb-4">
              <!-- Tours will be injected here -->
@@ -38,7 +38,7 @@
         </div>
 
         <div class="px-5 py-5 flex justify-center gap-5 border-t border-touri-dark/10 text-[11px] text-touri-dark/60">
-          <span>Cómo funciona</span><span>Sobre Touri</span><span>Contacto</span>
+          <span data-i18n="home.how">Cómo funciona</span><span data-i18n="home.about">Sobre Touri</span><span data-i18n="home.contact">Contacto</span>
         </div>
       </section>
     </div>
@@ -76,7 +76,7 @@
             <div class="absolute inset-0 bg-gradient-to-t from-touri-dark/90 via-touri-dark/10 to-transparent"></div>
             <div class="absolute bottom-3 left-3.5 right-3.5">
               <p class="font-display text-xl uppercase text-touri-cream m-0">${meta.name || meta.city}</p>
-              <p class="text-xs text-touri-yellow mt-0.5">${tour.stops.length} paradas · ${Math.round(tour.stats.duration_min/60)}h · gratis</p>
+              <p class="text-xs text-touri-yellow mt-0.5">${tour.stops.length} ${t('explore.stops')} · ${Math.round(tour.stats.duration_min/60)}h · ${t('home.free')}</p>
             </div>
           `;
           toursContainer.appendChild(button);
@@ -90,8 +90,8 @@
         <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=780&q=80" class="absolute inset-0 w-full h-full object-cover grayscale-[40%]" alt="" />
         <div class="absolute inset-0 bg-touri-dark/55"></div>
         <div class="absolute bottom-2.5 left-3.5">
-          <p class="font-display text-base uppercase text-touri-cream m-0">París</p>
-          <p class="text-[11px] text-touri-cream/75 mt-0.5">Próximamente</p>
+          <p class="font-display text-base uppercase text-touri-cream m-0">${t('city_paris')}</p>
+          <p class="text-[11px] text-touri-cream/75 mt-0.5">${t('explore.upcoming')}</p>
         </div>
       `;
       toursContainer.appendChild(upcomingDiv);

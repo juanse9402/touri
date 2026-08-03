@@ -32,7 +32,7 @@
             Cargando...
           </h1>
           <p id="detail-desc" class="mb-5 text-sm leading-relaxed text-touri-cream/85">Cargando detalles...</p>
-          <button onclick="showScreen('screen-map')" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-touri-green py-4 text-[15px] font-bold text-touri-cream active:scale-[0.98] transition-transform">
+          <button id="btn-start-route" onclick="showScreen('screen-map')" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-touri-green py-4 text-[15px] font-bold text-touri-cream active:scale-[0.98] transition-transform">
             Empezar ruta gratis
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
           </button>
@@ -59,7 +59,7 @@
         <div class="px-5 py-5 z-10 relative">
           <p id="map-title" class="font-display text-xl uppercase text-touri-dark m-0 mb-1"></p>
           <p id="map-desc" class="text-[13px] text-touri-dark/60 m-0 mb-4"></p>
-          <button onclick="startTour()" class="w-full rounded-2xl bg-touri-green text-touri-cream font-bold text-[15px] py-4">Confirmar y salir</button>
+          <button id="btn-confirm-route" onclick="startTour()" class="w-full rounded-2xl bg-touri-green text-touri-cream font-bold text-[15px] py-4">Confirmar y salir</button>
         </div>
       </section>
 
@@ -83,12 +83,16 @@
       const durationHours = Math.round(tour.stats.duration_min / 60);
       const distKm = (tour.stats.distance_m / 1000).toFixed(1);
       
-      document.getElementById('detail-title').innerHTML = `Descubre <br/><span class="text-touri-yellow">${meta.name || meta.city}</span>`;
-      document.getElementById('detail-desc').innerHTML = `${tour.stops.length} paradas · ${durationHours} horas · ${distKm} km. Guía de audio que se activa sola al llegar.`;
+      document.getElementById('detail-title').innerHTML = `${t('splash.headline.1')} <br/><span class="text-touri-yellow">${meta.name || meta.city}</span>`;
+      document.getElementById('detail-desc').innerHTML = `${tour.stops.length} ${t('explore.stops')} · ${durationHours}h · ${distKm} km. ${t('splash.sub').split('.')[1] || ''}.`;
       
-      document.getElementById('map-stops-badge').textContent = `${tour.stops.length} paradas`;
+      document.getElementById('map-stops-badge').textContent = `${tour.stops.length} ${t('explore.stops')}`;
       document.getElementById('map-title').textContent = meta.name || meta.city;
-      document.getElementById('map-desc').textContent = `${distKm} km · empieza en ${tour.stops[0].name[lang]}`;
+      document.getElementById('map-desc').textContent = `${distKm} km · ${tour.stops[0].name[lang]}`;
+      
+      // Update HTML static buttons
+      document.getElementById('btn-start-route').innerHTML = `${t('start_btn')} <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+      document.getElementById('btn-confirm-route').textContent = t('start_btn');
       
       // Try to load image
       let imgUrl = 'https://images.unsplash.com/photo-1558642084-fd07fae5282e?w=1200&q=80';
