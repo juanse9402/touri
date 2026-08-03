@@ -6,8 +6,8 @@
 const TRANSLATIONS = {
   "es": {
     "splash.eyebrow": "Vitoria-Gasteiz · España",
-    "splash.headline.1": "Descubre la",
-    "splash.headline.2": "ciudad que",
+    "splash.headline.1": "Descubre",
+    "splash.headline.2": "el lugar que",
     "splash.headline.3": "te espera",
     "splash.sub": "17 paradas · 2 horas · ~4.5 km a pie. Guía de audio que se activa sola.",
     "splash.cta": "Empezar ruta gratis",
