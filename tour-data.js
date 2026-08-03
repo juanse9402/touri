@@ -229,8 +229,8 @@ const TourData = (() => {
       const resp = await fetch(url);
       if (!resp.ok) return null;
       const data = await resp.json();
-      if (data && data.original && data.original.source) {
-        return data.original.source;
+      if (data && data.originalimage && data.originalimage.source) {
+        return data.originalimage.source;
       } else if (data && data.thumbnail && data.thumbnail.source) {
         return data.thumbnail.source;
       }
